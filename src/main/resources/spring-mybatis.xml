@@ -8,7 +8,7 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations" value="classpath:jdbc.properties"/>
     </bean>
-    <!-- 3.配置数据源 ，使用的alibba的数据库连接池-->
+    <!-- 3.配置数据源 ，使用的alibaba的数据库连接池-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 基本属性 url、user、password -->
         <property name="driverClassName" value="${jdbc_driverClassName}"/>

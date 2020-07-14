@@ -8,7 +8,7 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0" metadata-complete="true">
 
-  <display-name>olalashopModel</display-name>
+  <display-name>olalashop</display-name>
 
   <!--log4j监听器-->
   <listener>
@@ -71,7 +71,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <!--spingMVC的配置路径 -->
+      <!--springMVC的配置路径 -->
       <param-value>classpath:applicationContext.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
@@ -84,7 +84,7 @@
   <!--配置该段代码表示对html请求不阻挡-->
   <servlet-mapping>
     <servlet-name>default</servlet-name>
-    <url-pattern>*.html</url-pattern>
+    <url-pattern>/business/**</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
