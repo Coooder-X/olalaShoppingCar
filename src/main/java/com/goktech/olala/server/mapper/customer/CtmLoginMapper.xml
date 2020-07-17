@@ -18,4 +18,21 @@
     select CUSTOMER_ID, LOGIN_NAME, PASSWORD, USER_STATUS, MODIFIED_TIME
     from c_login
   </select>
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmLogin">
+    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
+    <result column="LOGIN_NAME" jdbcType="VARCHAR" property="loginName" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="USER_STATUS" jdbcType="BIT" property="userStatus" />
+    <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmLogin">
+    insert into c_login (CUSTOMER_ID, LOGIN_NAME, PASSWORD, 
+      USER_STATUS, MODIFIED_TIME)
+    values (#{customerId,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{userStatus,jdbcType=BIT}, #{modifiedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select CUSTOMER_ID, LOGIN_NAME, PASSWORD, USER_STATUS, MODIFIED_TIME
+    from c_login
+  </select>
 </mapper>

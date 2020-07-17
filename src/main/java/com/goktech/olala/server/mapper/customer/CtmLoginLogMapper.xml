@@ -35,4 +35,38 @@
     select LOGIN_ID, CUSTOMER_ID, LOGIN_TIME, LOGIN_IP, LOGIN_TYPE
     from c_login_log
   </select>
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmLoginLog">
+    <id column="LOGIN_ID" jdbcType="BIGINT" property="loginId" />
+    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
+    <result column="LOGIN_TIME" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="LOGIN_IP" jdbcType="VARCHAR" property="loginIp" />
+    <result column="LOGIN_TYPE" jdbcType="BIT" property="loginType" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from c_login_log
+    where LOGIN_ID = #{loginId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmLoginLog">
+    insert into c_login_log (LOGIN_ID, CUSTOMER_ID, LOGIN_TIME, 
+      LOGIN_IP, LOGIN_TYPE)
+    values (#{loginId,jdbcType=BIGINT}, #{customerId,jdbcType=VARCHAR}, #{loginTime,jdbcType=TIMESTAMP}, 
+      #{loginIp,jdbcType=VARCHAR}, #{loginType,jdbcType=BIT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmLoginLog">
+    update c_login_log
+    set CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
+      LOGIN_TIME = #{loginTime,jdbcType=TIMESTAMP},
+      LOGIN_IP = #{loginIp,jdbcType=VARCHAR},
+      LOGIN_TYPE = #{loginType,jdbcType=BIT}
+    where LOGIN_ID = #{loginId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select LOGIN_ID, CUSTOMER_ID, LOGIN_TIME, LOGIN_IP, LOGIN_TYPE
+    from c_login_log
+    where LOGIN_ID = #{loginId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select LOGIN_ID, CUSTOMER_ID, LOGIN_TIME, LOGIN_IP, LOGIN_TYPE
+    from c_login_log
+  </select>
 </mapper>

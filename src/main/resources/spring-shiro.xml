@@ -1,101 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!--缓存管理器-->
-    <bean  id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
-    <!-- 凭证匹配器 -->
-    <!--<bean id="credentialsMatcher" class="com.jing.test.cas.admin.core.shiro.RetryLimitHashedCredentialsMatcher">
-        <constructor-arg ref="cacheManager"/>
-        <property name="hashAlgorithmName" value="md5"/>
-        <property name="hashIterations" value="2"/>
-        <property name="storedCredentialsHexEncoded" value="true"/>
-    </bean>-->
-
-    <!--密码处理类-->
-    <bean id="passwordService" class="com.goktech.olala.core.config.ShiroPasswordService" />
-    <bean id="shiroUserService" class="com.goktech.olala.core.config.ShiroUserService" />
-
-    <!-- Realm实现 -->
-    <bean id="shiroDBRealm" class="com.goktech.olala.core.config.ShiroDBRealm">
-        <!--<property name="credentialsMatcher" ref="credentialsMatcher"/>-->
-        <property name="cachingEnabled" value="false"/>
-        <property name="shiroPasswordService" ref="passwordService"/>
-        <property name="shiroUserService" ref="shiroUserService"/>
+    <!--自定义权限认证-->
+    <bean id="authRealm" class="com.goktech.olala.core.config.AuthRealm">
+        <!--自定义密码加密算法  -->
+        <!--<property name="credentialsMatcher" ref="passwordMatcher"/>-->
+        <!--<property name="roleDao" ref="roleDao"/>-->
+        <!--<property name="permissionDao" ref="permissionDao"/>-->
     </bean>
 
-    <!-- 会话ID生成器 -->
-    <bean id="sessionIdGenerator" class="com.goktech.olala.core.config.UuIdSessionIdGenerator"/>
+    <!-- 设置密码加密策略 md5hash -->
+    <!--<bean id="passwordMatcher" class="com.fyh.www.shiro.CustomCredentialsMatcher"/>-->
 
-    <!-- 会话Cookie模板 -->
-    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
-        <constructor-arg value="sid"/>
-        <property name="httpOnly" value="true"/>
-        <property name="maxAge" value="-1"/>
-    </bean>
-    <!-- 会话DAO -->
-    <bean id="sessionDAO"
-          class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
-        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
-        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
-    </bean>
-
-    <!-- 会话验证调度器 -->
-    <bean id="sessionValidationScheduler"
-          class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
-        <property name="sessionValidationInterval" value="1800000"/>
-        <property name="sessionManager" ref="sessionManager"/>
-    </bean>
-
-    <!-- 会话管理器 -->
-    <bean id="sessionManager"
-          class="com.goktech.olala.core.config.CustomSessionManager">
-        <property name="globalSessionTimeout" value="1800000"/>
-        <property name="deleteInvalidSessions" value="true"/>
-        <property name="sessionValidationSchedulerEnabled" value="true"/>
-        <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>
-        <property name="sessionDAO" ref="sessionDAO"/>
-        <property name="sessionIdCookieEnabled" value="true"/>
-        <property name="sessionIdCookie" ref="sessionIdCookie"/>
-    </bean>
-
-    <!-- 安全管理器 -->
+    <!-- 配置权限管理器(核心) -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <property name="realm" ref="shiroDBRealm"/>
-        <property name="sessionManager" ref="sessionManager"/>
+        <!-- 我们自定义的realm -->
+        <property name="realm" ref="authRealm"/>
+        <!-- 缓存管理器 -->
+        <property name="cacheManager" ref="cacheManager"/>
     </bean>
-    <!-- 相当于调用SecurityUtils.setSecurityManager(securityManager) -->
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
-        <property name="arguments" ref="securityManager"/>
-    </bean>
-    <!-- Shiro的Web过滤器 -->
+
+    <!-- 此bean要被web.xml引用,和web.shiroFilter -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 权限管理器 -->
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/business/home/login.html"/>
-        <property name="successUrl" value="/business/home/index.html"/>
-        <property name="unauthorizedUrl" value="/business/403.html"/>
-        <!--<property name="filters">
-            <util:map>
-                <entry key="authc" value-ref="formAuthenticationFilter"/>
-                <entry key="perm" value-ref="permissionsAuthorizationFilter"/>
-                <entry key="captcha" value-ref="captchaValidateFilter"/>
-                <entry key="sysUser" value-ref="sysUserFilter"/>
-                <entry key="user" value-ref="userFilter"/>
-            </util:map>
-        </property>-->
+        <!-- 登录地址 -->
+        <property name="loginUrl" value="/pages/login.jsp"/>
+        <!-- 登录后跳转到业务页面 -->
+        <property name="successUrl" value="/pages/home.jsp"/>
+        <!-- 错误页面 -->
+        <property name="unauthorizedUrl" value="/pages/unauthorized.jsp"/>
+        <!-- 权限配置 -->
         <property name="filterChainDefinitions">
-            <!-- 如果不应用acm cas方案则添加	/logout=logout -->
             <value>
-                /business/home/login.html = anon
-                /business/home/index.html = anon
-                /business/frame.html = anon
-                /login.do = anon
+                <!-- 匿名登录请求 -->
+                /business/home/** = anon
+                <!-- **代表任意子目录 -->
+                /business/AmazeUI-2.4.2/**=anon
+                /business/css/** = anon
+                /business/images/** = anon
+                /business/js/** = anon
+                /business/resource/** = anon
+                <!-- 需要权限为edit的用户才能访问此请求-->
+                /backstage/edit=perms[user:edit]
+                <!-- 需要管理员角色才能访问此页面 -->
+                <!--/user/edit=roles[admin]-->
+                <!--拦截非静态资源的所有请求-->
+                /** = authc
+                <!--authc:确保已认证的用户发送的请求才能通过（若未认证，则跳转到登录页面）-->
             </value>
         </property>
     </bean>
-
-    <!-- Shiro生命周期处理器-->
+    <!-- 用户授权/认证信息Cache, 采用EhCache  缓存 -->
+    <!--<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">-->
+    <!--<property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml"/>-->
+    <!--</bean>-->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <!-- 安全管理器 -->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    <!--启用Shiro相关的注解-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
 </beans>

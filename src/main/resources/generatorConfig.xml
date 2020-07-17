@@ -25,36 +25,28 @@
             生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径
          也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下
         -->
-        <javaModelGenerator targetPackage="com.goktech.olala.server.pojo.customer" targetProject="${project}">
+        <javaModelGenerator targetPackage="com.goktech.olala.server.pojo.sys" targetProject="${project}">
             <property name="enableSubPackages" value="true" />
             <!-- 从数据库返回的值被清理前后的空格  -->
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
         <!--对应的mapper.xml文件  -->
-        <sqlMapGenerator targetPackage="com.goktech.olala.server.mapper.customer" targetProject="${project}">
+        <sqlMapGenerator targetPackage="com.goktech.olala.server.mapper.sys" targetProject="${project}">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
         <!-- 对应的Mapper接口类文件 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.goktech.olala.server.dao.customer" targetProject="${project}">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.goktech.olala.server.dao.sys" targetProject="${project}">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 生成那些表，tableName对应数据库表，domainObjectName对应实体类名 -->
 
-        <table tableName="c_login" domainObjectName="CtmLogin" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" />
-        <table tableName="c_login_log" domainObjectName="CtmLoginLog" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>
-        <table tableName="c_customer_info" domainObjectName="CtmInfo" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" />
-        <table tableName="c_balance_log" domainObjectName="CtmBalance" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" />
-        <table tableName="c_point_log" domainObjectName="CtmPointLog" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" />
-        <table tableName="c_collect" domainObjectName="CtmCollect" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" />
-        <table tableName="c_level_info" domainObjectName="CtmLevelInfo" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" />
-        <table tableName="c_consignee" domainObjectName="CtmConsignee" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"/>
-
-        <!--<table tableName="sys_user" domainObjectName="SysUser" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
-        <table tableName="sys_role" domainObjectName="SysRole" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <table tableName="sys_user_role" domainObjectName="SysUserRole" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <table tableName="sys_role_menu" domainObjectName="SysRoleMenu" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="sys_role" domainObjectName="SysRole" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
         <table tableName="sys_menu" domainObjectName="SysMenu" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
         <table tableName="sys_dict" domainObjectName="SysDict" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
--->
+    -->
     </context>
 </generatorConfiguration>
