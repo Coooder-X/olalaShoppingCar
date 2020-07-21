@@ -1,67 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goktech.olala.server.dao.customer.CtmLevelInfoMapper">
-  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmLevelInfo">
-    <id column="CUSTOMER_LEVEL_ID" jdbcType="INTEGER" property="customerLevelId" />
-    <result column="LEVEL_NAME" jdbcType="VARCHAR" property="levelName" />
-    <result column="MIN_POINT" jdbcType="INTEGER" property="minPoint" />
-    <result column="MAX_POINT" jdbcType="INTEGER" property="maxPoint" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmLevelInfo">
+        <id column="CUSTOMER_LEVEL_ID" jdbcType="INTEGER" property="customerLevelId"/>
+        <result column="LEVEL_NAME" jdbcType="VARCHAR" property="levelName"/>
+        <result column="MIN_POINT" jdbcType="INTEGER" property="minPoint"/>
+        <result column="MAX_POINT" jdbcType="INTEGER" property="maxPoint"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from c_level_info
     where CUSTOMER_LEVEL_ID = #{customerLevelId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmLevelInfo">
+    <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmLevelInfo">
     insert into c_level_info (CUSTOMER_LEVEL_ID, LEVEL_NAME, MIN_POINT, 
       MAX_POINT)
     values (#{customerLevelId,jdbcType=INTEGER}, #{levelName,jdbcType=VARCHAR}, #{minPoint,jdbcType=INTEGER}, 
       #{maxPoint,jdbcType=INTEGER})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmLevelInfo">
+    <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmLevelInfo">
     update c_level_info
     set LEVEL_NAME = #{levelName,jdbcType=VARCHAR},
       MIN_POINT = #{minPoint,jdbcType=INTEGER},
       MAX_POINT = #{maxPoint,jdbcType=INTEGER}
     where CUSTOMER_LEVEL_ID = #{customerLevelId,jdbcType=INTEGER}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select CUSTOMER_LEVEL_ID, LEVEL_NAME, MIN_POINT, MAX_POINT
     from c_level_info
     where CUSTOMER_LEVEL_ID = #{customerLevelId,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select CUSTOMER_LEVEL_ID, LEVEL_NAME, MIN_POINT, MAX_POINT
-    from c_level_info
-  </select>
-  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmLevelInfo">
-    <id column="CUSTOMER_LEVEL_ID" jdbcType="INTEGER" property="customerLevelId" />
-    <result column="LEVEL_NAME" jdbcType="VARCHAR" property="levelName" />
-    <result column="MIN_POINT" jdbcType="INTEGER" property="minPoint" />
-    <result column="MAX_POINT" jdbcType="INTEGER" property="maxPoint" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from c_level_info
-    where CUSTOMER_LEVEL_ID = #{customerLevelId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmLevelInfo">
-    insert into c_level_info (CUSTOMER_LEVEL_ID, LEVEL_NAME, MIN_POINT, 
-      MAX_POINT)
-    values (#{customerLevelId,jdbcType=INTEGER}, #{levelName,jdbcType=VARCHAR}, #{minPoint,jdbcType=INTEGER}, 
-      #{maxPoint,jdbcType=INTEGER})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmLevelInfo">
-    update c_level_info
-    set LEVEL_NAME = #{levelName,jdbcType=VARCHAR},
-      MIN_POINT = #{minPoint,jdbcType=INTEGER},
-      MAX_POINT = #{maxPoint,jdbcType=INTEGER}
-    where CUSTOMER_LEVEL_ID = #{customerLevelId,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select CUSTOMER_LEVEL_ID, LEVEL_NAME, MIN_POINT, MAX_POINT
-    from c_level_info
-    where CUSTOMER_LEVEL_ID = #{customerLevelId,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
     select CUSTOMER_LEVEL_ID, LEVEL_NAME, MIN_POINT, MAX_POINT
     from c_level_info
   </select>

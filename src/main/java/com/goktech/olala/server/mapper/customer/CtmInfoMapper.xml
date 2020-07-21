@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goktech.olala.server.dao.customer.CtmInfoMapper">
-  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmInfo">
-    <id column="CUSTOMER_INF_ID" jdbcType="VARCHAR" property="customerInfId" />
-    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
-    <result column="CUSTOMER_NAME" jdbcType="VARCHAR" property="customerName" />
-    <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
-    <result column="IDENTY_CARD_TYPE" jdbcType="BIT" property="identyCardType" />
-    <result column="IDENTY_CARD_NO" jdbcType="VARCHAR" property="identyCardNo" />
-    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
-    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
-    <result column="GENDER" jdbcType="BIT" property="gender" />
-    <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
-    <result column="USER_POINT" jdbcType="INTEGER" property="userPoint" />
-    <result column="REGISTER_TIME" jdbcType="TIMESTAMP" property="registerTime" />
-    <result column="CUSTOMER_LEVEL" jdbcType="BIT" property="customerLevel" />
-    <result column="USER_BALANCE" jdbcType="INTEGER" property="userBalance" />
-    <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmInfo">
+        <id column="CUSTOMER_INF_ID" jdbcType="VARCHAR" property="customerInfId"/>
+        <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId"/>
+        <result column="CUSTOMER_NAME" jdbcType="VARCHAR" property="customerName"/>
+        <result column="REAL_NAME" jdbcType="VARCHAR" property="realName"/>
+        <result column="IDENTY_CARD_TYPE" jdbcType="BIT" property="identyCardType"/>
+        <result column="IDENTY_CARD_NO" jdbcType="VARCHAR" property="identyCardNo"/>
+        <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile"/>
+        <result column="EMAIL" jdbcType="VARCHAR" property="email"/>
+        <result column="GENDER" jdbcType="BIT" property="gender"/>
+        <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday"/>
+        <result column="USER_POINT" jdbcType="INTEGER" property="userPoint"/>
+        <result column="REGISTER_TIME" jdbcType="TIMESTAMP" property="registerTime"/>
+        <result column="CUSTOMER_LEVEL" jdbcType="BIT" property="customerLevel"/>
+        <result column="USER_BALANCE" jdbcType="INTEGER" property="userBalance"/>
+        <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from c_customer_info
     where CUSTOMER_INF_ID = #{customerInfId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmInfo">
+    <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmInfo">
     insert into c_customer_info (CUSTOMER_INF_ID, CUSTOMER_ID, CUSTOMER_NAME, 
       REAL_NAME, IDENTY_CARD_TYPE, IDENTY_CARD_NO, 
       USER_MOBILE, EMAIL, GENDER, 
@@ -36,7 +36,7 @@
       #{customerLevel,jdbcType=BIT}, #{userBalance,jdbcType=INTEGER}, #{modifiedTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmInfo">
+    <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmInfo">
     update c_customer_info
     set CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
       CUSTOMER_NAME = #{customerName,jdbcType=VARCHAR},
@@ -54,80 +54,14 @@
       MODIFIED_TIME = #{modifiedTime,jdbcType=TIMESTAMP}
     where CUSTOMER_INF_ID = #{customerInfId,jdbcType=VARCHAR}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select CUSTOMER_INF_ID, CUSTOMER_ID, CUSTOMER_NAME, REAL_NAME, IDENTY_CARD_TYPE, 
     IDENTY_CARD_NO, USER_MOBILE, EMAIL, GENDER, BIRTHDAY, USER_POINT, REGISTER_TIME, 
     CUSTOMER_LEVEL, USER_BALANCE, MODIFIED_TIME
     from c_customer_info
     where CUSTOMER_INF_ID = #{customerInfId,jdbcType=VARCHAR}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select CUSTOMER_INF_ID, CUSTOMER_ID, CUSTOMER_NAME, REAL_NAME, IDENTY_CARD_TYPE, 
-    IDENTY_CARD_NO, USER_MOBILE, EMAIL, GENDER, BIRTHDAY, USER_POINT, REGISTER_TIME, 
-    CUSTOMER_LEVEL, USER_BALANCE, MODIFIED_TIME
-    from c_customer_info
-  </select>
-  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmInfo">
-    <id column="CUSTOMER_INF_ID" jdbcType="VARCHAR" property="customerInfId" />
-    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
-    <result column="CUSTOMER_NAME" jdbcType="VARCHAR" property="customerName" />
-    <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
-    <result column="IDENTY_CARD_TYPE" jdbcType="BIT" property="identyCardType" />
-    <result column="IDENTY_CARD_NO" jdbcType="VARCHAR" property="identyCardNo" />
-    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
-    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
-    <result column="GENDER" jdbcType="BIT" property="gender" />
-    <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
-    <result column="USER_POINT" jdbcType="INTEGER" property="userPoint" />
-    <result column="REGISTER_TIME" jdbcType="TIMESTAMP" property="registerTime" />
-    <result column="CUSTOMER_LEVEL" jdbcType="BIT" property="customerLevel" />
-    <result column="USER_BALANCE" jdbcType="INTEGER" property="userBalance" />
-    <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from c_customer_info
-    where CUSTOMER_INF_ID = #{customerInfId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmInfo">
-    insert into c_customer_info (CUSTOMER_INF_ID, CUSTOMER_ID, CUSTOMER_NAME, 
-      REAL_NAME, IDENTY_CARD_TYPE, IDENTY_CARD_NO, 
-      USER_MOBILE, EMAIL, GENDER, 
-      BIRTHDAY, USER_POINT, REGISTER_TIME, 
-      CUSTOMER_LEVEL, USER_BALANCE, MODIFIED_TIME
-      )
-    values (#{customerInfId,jdbcType=VARCHAR}, #{customerId,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
-      #{realName,jdbcType=VARCHAR}, #{identyCardType,jdbcType=BIT}, #{identyCardNo,jdbcType=VARCHAR}, 
-      #{userMobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, 
-      #{birthday,jdbcType=VARCHAR}, #{userPoint,jdbcType=INTEGER}, #{registerTime,jdbcType=TIMESTAMP}, 
-      #{customerLevel,jdbcType=BIT}, #{userBalance,jdbcType=INTEGER}, #{modifiedTime,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmInfo">
-    update c_customer_info
-    set CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
-      CUSTOMER_NAME = #{customerName,jdbcType=VARCHAR},
-      REAL_NAME = #{realName,jdbcType=VARCHAR},
-      IDENTY_CARD_TYPE = #{identyCardType,jdbcType=BIT},
-      IDENTY_CARD_NO = #{identyCardNo,jdbcType=VARCHAR},
-      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      GENDER = #{gender,jdbcType=BIT},
-      BIRTHDAY = #{birthday,jdbcType=VARCHAR},
-      USER_POINT = #{userPoint,jdbcType=INTEGER},
-      REGISTER_TIME = #{registerTime,jdbcType=TIMESTAMP},
-      CUSTOMER_LEVEL = #{customerLevel,jdbcType=BIT},
-      USER_BALANCE = #{userBalance,jdbcType=INTEGER},
-      MODIFIED_TIME = #{modifiedTime,jdbcType=TIMESTAMP}
-    where CUSTOMER_INF_ID = #{customerInfId,jdbcType=VARCHAR}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select CUSTOMER_INF_ID, CUSTOMER_ID, CUSTOMER_NAME, REAL_NAME, IDENTY_CARD_TYPE, 
-    IDENTY_CARD_NO, USER_MOBILE, EMAIL, GENDER, BIRTHDAY, USER_POINT, REGISTER_TIME, 
-    CUSTOMER_LEVEL, USER_BALANCE, MODIFIED_TIME
-    from c_customer_info
-    where CUSTOMER_INF_ID = #{customerInfId,jdbcType=VARCHAR}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
     select CUSTOMER_INF_ID, CUSTOMER_ID, CUSTOMER_NAME, REAL_NAME, IDENTY_CARD_TYPE, 
     IDENTY_CARD_NO, USER_MOBILE, EMAIL, GENDER, BIRTHDAY, USER_POINT, REGISTER_TIME, 
     CUSTOMER_LEVEL, USER_BALANCE, MODIFIED_TIME

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goktech.olala.server.dao.customer.CtmPointLogMapper">
-  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmPointLog">
-    <id column="POINT_ID" jdbcType="BIGINT" property="pointId" />
-    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
-    <result column="SOURCE" jdbcType="BIT" property="source" />
-    <result column="REFER_NUM" jdbcType="VARCHAR" property="referNum" />
-    <result column="CHARGE_POINT" jdbcType="INTEGER" property="chargePoint" />
-    <result column="RANK_POINTS" jdbcType="INTEGER" property="rankPoints" />
-    <result column="PAY_POINTS" jdbcType="INTEGER" property="payPoints" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="CHANGE_DESC" jdbcType="VARCHAR" property="changeDesc" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmPointLog">
+        <id column="POINT_ID" jdbcType="BIGINT" property="pointId"/>
+        <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId"/>
+        <result column="SOURCE" jdbcType="BIT" property="source"/>
+        <result column="REFER_NUM" jdbcType="VARCHAR" property="referNum"/>
+        <result column="CHARGE_POINT" jdbcType="INTEGER" property="chargePoint"/>
+        <result column="RANK_POINTS" jdbcType="INTEGER" property="rankPoints"/>
+        <result column="PAY_POINTS" jdbcType="INTEGER" property="payPoints"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="CHANGE_DESC" jdbcType="VARCHAR" property="changeDesc"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from c_point_log
     where POINT_ID = #{pointId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmPointLog">
+    <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmPointLog">
     insert into c_point_log (POINT_ID, CUSTOMER_ID, SOURCE, 
       REFER_NUM, CHARGE_POINT, RANK_POINTS, 
       PAY_POINTS, CREATE_TIME, CHANGE_DESC
@@ -26,7 +27,7 @@
       #{payPoints,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{changeDesc,jdbcType=VARCHAR}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmPointLog">
+    <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmPointLog">
     update c_point_log
     set CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
       SOURCE = #{source,jdbcType=BIT},
@@ -38,61 +39,13 @@
       CHANGE_DESC = #{changeDesc,jdbcType=VARCHAR}
     where POINT_ID = #{pointId,jdbcType=BIGINT}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select POINT_ID, CUSTOMER_ID, SOURCE, REFER_NUM, CHARGE_POINT, RANK_POINTS, PAY_POINTS, 
     CREATE_TIME, CHANGE_DESC
     from c_point_log
     where POINT_ID = #{pointId,jdbcType=BIGINT}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select POINT_ID, CUSTOMER_ID, SOURCE, REFER_NUM, CHARGE_POINT, RANK_POINTS, PAY_POINTS, 
-    CREATE_TIME, CHANGE_DESC
-    from c_point_log
-  </select>
-  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmPointLog">
-    <id column="POINT_ID" jdbcType="BIGINT" property="pointId" />
-    <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId" />
-    <result column="SOURCE" jdbcType="BIT" property="source" />
-    <result column="REFER_NUM" jdbcType="VARCHAR" property="referNum" />
-    <result column="CHARGE_POINT" jdbcType="INTEGER" property="chargePoint" />
-    <result column="RANK_POINTS" jdbcType="INTEGER" property="rankPoints" />
-    <result column="PAY_POINTS" jdbcType="INTEGER" property="payPoints" />
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="CHANGE_DESC" jdbcType="VARCHAR" property="changeDesc" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from c_point_log
-    where POINT_ID = #{pointId,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmPointLog">
-    insert into c_point_log (POINT_ID, CUSTOMER_ID, SOURCE, 
-      REFER_NUM, CHARGE_POINT, RANK_POINTS, 
-      PAY_POINTS, CREATE_TIME, CHANGE_DESC
-      )
-    values (#{pointId,jdbcType=BIGINT}, #{customerId,jdbcType=VARCHAR}, #{source,jdbcType=BIT}, 
-      #{referNum,jdbcType=VARCHAR}, #{chargePoint,jdbcType=INTEGER}, #{rankPoints,jdbcType=INTEGER}, 
-      #{payPoints,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{changeDesc,jdbcType=VARCHAR}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmPointLog">
-    update c_point_log
-    set CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
-      SOURCE = #{source,jdbcType=BIT},
-      REFER_NUM = #{referNum,jdbcType=VARCHAR},
-      CHARGE_POINT = #{chargePoint,jdbcType=INTEGER},
-      RANK_POINTS = #{rankPoints,jdbcType=INTEGER},
-      PAY_POINTS = #{payPoints,jdbcType=INTEGER},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      CHANGE_DESC = #{changeDesc,jdbcType=VARCHAR}
-    where POINT_ID = #{pointId,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select POINT_ID, CUSTOMER_ID, SOURCE, REFER_NUM, CHARGE_POINT, RANK_POINTS, PAY_POINTS, 
-    CREATE_TIME, CHANGE_DESC
-    from c_point_log
-    where POINT_ID = #{pointId,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
     select POINT_ID, CUSTOMER_ID, SOURCE, REFER_NUM, CHARGE_POINT, RANK_POINTS, PAY_POINTS, 
     CREATE_TIME, CHANGE_DESC
     from c_point_log
