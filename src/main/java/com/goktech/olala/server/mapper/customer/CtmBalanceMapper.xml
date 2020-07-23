@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goktech.olala.server.dao.customer.CtmBalanceMapper">
 
-    <resultMap id="BaseResultMap1" type="com.goktech.olala.server.pojo.customer.CtmBalance">
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmBalance">
         <id column="BALANCE_ID" jdbcType="BIGINT" property="balanceId"/>
         <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId"/>
         <result column="SOURCE" jdbcType="BIT" property="source"/>

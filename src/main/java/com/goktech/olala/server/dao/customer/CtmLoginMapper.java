@@ -7,4 +7,6 @@ public interface CtmLoginMapper {
     int insert(CtmLogin record);
 
     List<CtmLogin> selectAll();
+
+    CtmLogin selectByParam(String userName, String password);
 }

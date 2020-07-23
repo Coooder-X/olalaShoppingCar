@@ -11,7 +11,7 @@ public class CtmInfo {
 
     private String realName;
 
-    private Boolean identyCardType;
+    private Integer identyCardType;
 
     private String identyCardNo;
 
@@ -19,7 +19,7 @@ public class CtmInfo {
 
     private String email;
 
-    private Boolean gender;
+    private Integer gender;
 
     private String birthday;
 
@@ -27,7 +27,9 @@ public class CtmInfo {
 
     private Date registerTime;
 
-    private Boolean customerLevel;
+    private Integer customerLevel;
+
+    private Integer customerStatus;
 
     private Integer userBalance;
 
@@ -65,14 +67,6 @@ public class CtmInfo {
         this.realName = realName == null ? null : realName.trim();
     }
 
-    public Boolean getIdentyCardType() {
-        return identyCardType;
-    }
-
-    public void setIdentyCardType(Boolean identyCardType) {
-        this.identyCardType = identyCardType;
-    }
-
     public String getIdentyCardNo() {
         return identyCardNo;
     }
@@ -97,11 +91,11 @@ public class CtmInfo {
         this.email = email == null ? null : email.trim();
     }
 
-    public Boolean getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(Boolean gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
@@ -129,12 +123,28 @@ public class CtmInfo {
         this.registerTime = registerTime;
     }
 
-    public Boolean getCustomerLevel() {
+    public Integer getIdentyCardType() {
+        return identyCardType;
+    }
+
+    public void setIdentyCardType(Integer identyCardType) {
+        this.identyCardType = identyCardType;
+    }
+
+    public Integer getCustomerLevel() {
         return customerLevel;
     }
 
-    public void setCustomerLevel(Boolean customerLevel) {
+    public void setCustomerLevel(Integer customerLevel) {
         this.customerLevel = customerLevel;
+    }
+
+    public Integer getCustomerStatus() {
+        return customerStatus;
+    }
+
+    public void setCustomerStatus(Integer customerStatus) {
+        this.customerStatus = customerStatus;
     }
 
     public Integer getUserBalance() {

@@ -7,6 +7,9 @@ public class RespUserVo {
     private String password;
     private String realName;
 
+    private Integer respCode;
+    private String respMge;
+
     public String getUserId() {
         return userId;
     }
@@ -37,5 +40,21 @@ public class RespUserVo {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public Integer getRespCode() {
+        return respCode;
+    }
+
+    public void setRespCode(Integer respCode) {
+        this.respCode = respCode;
+    }
+
+    public String getRespMge() {
+        return respMge;
+    }
+
+    public void setRespMge(String respMge) {
+        this.respMge = respMge;
     }
 }

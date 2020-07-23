@@ -7,9 +7,9 @@ import java.io.Serializable;
  */
 public class RespRoleVo implements Serializable {
 
-     private Long roleId;
-     private String roleName;
-     private String description;
+    private Long roleId;
+    private String roleName;
+    private String description;
 
     public Long getRoleId() {
         return roleId;
