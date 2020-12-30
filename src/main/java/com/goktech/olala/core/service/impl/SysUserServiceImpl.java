@@ -56,4 +56,9 @@ public class SysUserServiceImpl implements ISysUserService {
     public RespPermissionVo findOneByName(String name) {
         return null;
     }
+
+    @Override
+    public int addUser(SysUser user) {
+        return sysUserDao.insert(user);
+    }
 }

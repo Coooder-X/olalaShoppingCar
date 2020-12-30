@@ -24,4 +24,6 @@ public interface ISysUserService {
     public void store(RespPermissionVo permission);
 
     public RespPermissionVo findOneByName(String name);
+
+    public int addUser(SysUser user);
 }

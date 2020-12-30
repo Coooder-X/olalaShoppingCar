@@ -11,7 +11,7 @@ public class generater {
     public static void main(String[] args) {
         List<String> war=new ArrayList<>();
         Boolean ovr=true;
-        File file=new File("D:\\Users\\zhaoy\\IdeaProjects\\olalashop\\src\\main\\resources\\generatorConfig.xml");
+        File file=new File("D:\\eclipse-workspace\\lalaShoping\\src\\main\\resources\\generatorConfig.xml");
         ConfigurationParser cp=new ConfigurationParser(war);
         try {
             Configuration config=cp.parseConfiguration(file);

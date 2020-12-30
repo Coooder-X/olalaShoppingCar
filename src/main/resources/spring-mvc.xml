@@ -14,53 +14,58 @@
     <!-- 配置创建 spring 容器要扫描的包 -->
     <context:component-scan base-package="com.goktech.olala" />
     <!-- 注册freemarker配置类 -->
-    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
+    <!--<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
     <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <!-- html模版文件路径  -->
+        &lt;!&ndash; html模版文件路径  &ndash;&gt;
         <property name="templateLoaderPath" value="/business/" />
         <property name="freemarkerVariables">
             <map>
                 <entry key="xml_escape" value-ref="fmXmlEscape" />
             </map>
         </property>
-        <!-- 页面编码 -->
+        &lt;!&ndash; 页面编码 &ndash;&gt;
         <property name="defaultEncoding" value="utf-8" />
         <property name="freemarkerSettings">
             <props>
-                <!-- 模版缓存刷新时间，不写单位默认为秒 -->
+                &lt;!&ndash; 模版缓存刷新时间，不写单位默认为秒 &ndash;&gt;
                 <prop key="template_update_delay">10</prop>
-                <!-- 时区 和 时间格式化 -->
+                &lt;!&ndash; 时区 和 时间格式化 &ndash;&gt;
                 <prop key="locale">zh_CN</prop>
                 <prop key="datetime_format">yyyy-MM-dd</prop>
                 <prop key="date_format">yyyy-MM-dd</prop>
-                <!-- 数字使用.来分隔 -->
+                &lt;!&ndash; 数字使用.来分隔 &ndash;&gt;
                 <prop key="number_format">#.##</prop>
                 <prop key="defaultEncoding">UTF-8</prop>
             </props>
         </property>
-    </bean>
+    </bean>-->
 
     <!-- 配置视图解析器 -->
-    <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <!-- 视图解析顺序，排在其他视图解析器之后 数字越大优先级越低 -->
+  <!--  <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        &lt;!&ndash; 视图解析顺序，排在其他视图解析器之后 数字越大优先级越低 &ndash;&gt;
         <property name="order" value="2" />
-        <!-- 开启模版缓存 -->
+        &lt;!&ndash; 开启模版缓存 &ndash;&gt;
         <property name="cache" value="true" />
-        <!-- 上面已经配了，这里就不用配啦 -->
+        &lt;!&ndash; 上面已经配了，这里就不用配啦 &ndash;&gt;
         <property name="prefix" value="" />
-        <!-- 配置文件后缀 -->
+        &lt;!&ndash; 配置文件后缀 &ndash;&gt;
         <property name="suffix" value=".html" />
         <property name="contentType" value="text/html;charset=UTF-8" />
-        <!-- 是否允许session属性覆盖模型数据,默认false -->
+        &lt;!&ndash; 是否允许session属性覆盖模型数据,默认false &ndash;&gt;
         <property name="allowSessionOverride" value="false" />
-        <!-- 是否允许request属性覆盖模型数据,默认false -->
+        &lt;!&ndash; 是否允许request属性覆盖模型数据,默认false &ndash;&gt;
         <property name="allowRequestOverride" value="false" />
-        <!-- 开启spring提供的宏帮助(macro) -->
+        &lt;!&ndash; 开启spring提供的宏帮助(macro) &ndash;&gt;
         <property name="exposeSpringMacroHelpers" value="true" />
-        <!-- 添加request attributes属性到ModelAndView中 -->
+        &lt;!&ndash; 添加request attributes属性到ModelAndView中 &ndash;&gt;
         <property name="exposeRequestAttributes" value="true" />
-        <!-- 添加session attributes属性到ModelAndView中 -->
+        &lt;!&ndash; 添加session attributes属性到ModelAndView中 &ndash;&gt;
         <property name="exposeSessionAttributes" value="true" />
+    </bean>-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 配置视图解析器的前缀和后缀，前缀为路径，后缀为文件类型名 -->
+        <property name="prefix"  value="/business/"/>
+        <property name="suffix"  value=".jsp"/>
     </bean>
 
     <!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
