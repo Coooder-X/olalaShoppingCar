@@ -38,7 +38,7 @@
             <div class="clear"></div>
 
             <div class="login-form">
-                <form id="infoForm" action="/sysUser/login.do">
+                <form id="infoForm" action="/cntApi/login.do">
                     <div class="user-name">
                         <label for="userName"><i class="am-icon-user"></i></label>
                         <input type="text" name="userName" id="userName" placeholder="邮箱/手机/用户名">

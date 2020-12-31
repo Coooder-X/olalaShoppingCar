@@ -13,6 +13,12 @@ public class CtmLogin {
 
     private Date modifiedTime;
 
+    public CtmLogin(){}
+    public CtmLogin(String userName, String pwd) {
+        loginName = userName;
+        password = pwd;
+    }
+
     public String getCustomerId() {
         return customerId;
     }

@@ -18,4 +18,8 @@
     select CUSTOMER_ID, LOGIN_NAME, PASSWORD, USER_STATUS, MODIFIED_TIME
     from c_login
   </select>
+    <select id="selectByParam" parameterType="java.lang.String" resultType="com.goktech.olala.server.pojo.customer.CtmLogin">
+        select  * from c_login where LOGIN_NAME=#{arg0} and PASSWORD=#{arg1}
+    </select>
+
 </mapper>
