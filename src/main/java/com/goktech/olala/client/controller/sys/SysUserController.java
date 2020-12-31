@@ -51,6 +51,10 @@ public class SysUserController extends BasicController {
         sysUser.setPassword(pwd);
         System.out.println(sysUser);
         sysUser = sysUserService.querySysUserInfoByExample(sysUser);
+        /*
+        * 此处只实现了通过用户名登陆，
+        * 应新增通过邮箱、手机登陆实现。
+        * */
         if(null != sysUser){
             System.out.println("存在");
             request.getSession().setAttribute("sysUser", sysUser);

@@ -22,6 +22,7 @@ public class AccountController extends BasicController {
     @RequestMapping(value = "/login.do")
     @ResponseBody
     public ModelAndView login(HttpServletRequest request) throws Exception {
+        System.out.println("登陆");
         String userName = request.getParameter("userName");
         String pwd = request.getParameter("pwd");
 
@@ -42,6 +43,7 @@ public class AccountController extends BasicController {
     @RequestMapping(value = "/register.do")
     @ResponseBody
     public ModelAndView register(HttpServletRequest request) throws Exception {
+        System.out.println("注册");
         String userName = request.getParameter("userName");
         String pwd = request.getParameter("pwd");
 
