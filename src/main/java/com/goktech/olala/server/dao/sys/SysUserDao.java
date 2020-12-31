@@ -50,4 +50,5 @@ public interface SysUserDao {
 
     SysUser selectByExample(SysUser record);
 
+    public SysUser querySysUserInfoByName(String userName);
 }

@@ -59,7 +59,8 @@ public class SysUserController extends BasicController {
         }
         else{
             System.out.println("用户不存在");
-            view.setViewName("home/login");
+            request.setAttribute("errorMsg", "账号或密码错误！！！");
+            view.setViewName("forward:/business/home/login.jsp");
             return view;
         }
         view.addObject("SYSUSER",sysUser);
@@ -73,9 +74,18 @@ public class SysUserController extends BasicController {
         System.out.println("注册");
         String userName = request.getParameter("email");
         String pwd = request.getParameter("password");
-        System.out.println(userName + " " + pwd);
         ModelAndView view = new ModelAndView();
         SysUser sysUser = new SysUser(userName, pwd);
+        sysUser = sysUserService.querySysUserInfoByName(userName);
+        if(sysUser != null){
+            System.out.println("用户已存在");
+            request.setAttribute("errorMsg", "用户已存在！");
+            view.setViewName("home/register");
+            return  view;
+        }else{
+            sysUser = new SysUser(userName, pwd);
+        }
+        System.out.println(userName + " " + pwd);
         sysUser.setEmail(userName);
         sysUser.setStatus((byte) 1);
         sysUser.setCreateBy(userName);

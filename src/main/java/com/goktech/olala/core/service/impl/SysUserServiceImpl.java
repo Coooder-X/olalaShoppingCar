@@ -28,6 +28,11 @@ public class SysUserServiceImpl implements ISysUserService {
     }
 
     @Override
+    public SysUser querySysUserInfoByName(String userName) {
+        return sysUserDao.querySysUserInfoByName(userName);
+    }
+
+    @Override
     public RespUserVo findOneByUsername(String userName) {
         return null;
     }

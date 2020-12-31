@@ -13,6 +13,8 @@ public interface ISysUserService {
 
     SysUser querySysUserInfoByExample(SysUser sysUser);
 
+    SysUser querySysUserInfoByName(String userName);
+
     RespUserVo findOneByUsername(String userName);
 
     public RespPermissionVo findOne(String permissionId);

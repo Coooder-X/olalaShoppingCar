@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmConsigneeMapper">
+
+    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmConsignee">
+        <id column="CUSTOMER_ADDR_ID" jdbcType="INTEGER" property="customerAddrId"/>
+        <result column="CUSTOMER_ID" jdbcType="VARCHAR" property="customerId"/>
+        <result column="ZIP" jdbcType="VARCHAR" property="zip"/>
+        <result column="PROVINCE" jdbcType="VARCHAR" property="province"/>
+        <result column="CITY" jdbcType="VARCHAR" property="city"/>
+        <result column="DISTRICT" jdbcType="VARCHAR" property="district"/>
+        <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
+        <result column="IS_DEFAULT" jdbcType="BIT" property="isDefault"/>
+        <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from c_consignee
+    where CUSTOMER_ADDR_ID = #{customerAddrId,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmConsignee">
+    insert into c_consignee (CUSTOMER_ADDR_ID, CUSTOMER_ID, ZIP, 
+      PROVINCE, CITY, DISTRICT, 
+      ADDRESS, IS_DEFAULT, MODIFIED_TIME
+      )
+    values (#{customerAddrId,jdbcType=INTEGER}, #{customerId,jdbcType=VARCHAR}, #{zip,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{isDefault,jdbcType=BIT}, #{modifiedTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmConsignee">
+    update c_consignee
+    set CUSTOMER_ID = #{customerId,jdbcType=VARCHAR},
+      ZIP = #{zip,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      DISTRICT = #{district,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      IS_DEFAULT = #{isDefault,jdbcType=BIT},
+      MODIFIED_TIME = #{modifiedTime,jdbcType=TIMESTAMP}
+    where CUSTOMER_ADDR_ID = #{customerAddrId,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select CUSTOMER_ADDR_ID, CUSTOMER_ID, ZIP, PROVINCE, CITY, DISTRICT, ADDRESS, IS_DEFAULT, 
+    MODIFIED_TIME
+    from c_consignee
+    where CUSTOMER_ADDR_ID = #{customerAddrId,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select CUSTOMER_ADDR_ID, CUSTOMER_ID, ZIP, PROVINCE, CITY, DISTRICT, ADDRESS, IS_DEFAULT, 
+    MODIFIED_TIME
+    from c_consignee
+  </select>
+</mapper>
