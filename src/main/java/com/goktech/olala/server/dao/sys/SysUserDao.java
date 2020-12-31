@@ -50,5 +50,5 @@ public interface SysUserDao {
 
     SysUser selectByExample(SysUser record);
 
-    public SysUser querySysUserInfoByName(String userName);
+    public SysUser querySysUserInfoByName(String userName); //  新增的已用户名查找user的方法
 }

@@ -69,7 +69,7 @@ public class SysUserController extends BasicController {
         return view;
     }
 
-    @RequestMapping("/register")
+    @RequestMapping("/register")    //  使用邮箱注册
     public ModelAndView register(HttpServletRequest request){
         System.out.println("注册");
         String userName = request.getParameter("email");
@@ -77,7 +77,7 @@ public class SysUserController extends BasicController {
         ModelAndView view = new ModelAndView();
         SysUser sysUser = new SysUser(userName, pwd);
         sysUser = sysUserService.querySysUserInfoByName(userName);
-        if(sysUser != null){
+        if(sysUser != null){    //  用户已存在，返回登陆页面
             System.out.println("用户已存在");
             request.setAttribute("errorMsg", "用户已存在！");
             view.setViewName("home/register");
@@ -88,13 +88,13 @@ public class SysUserController extends BasicController {
         System.out.println(userName + " " + pwd);
         sysUser.setEmail(userName);
         sysUser.setStatus((byte) 1);
-        sysUser.setCreateBy(userName);
+        sysUser.setCreateBy(userName);  //  邮箱注册，但用户名为not null字段，在此默认设为邮箱
         sysUser.setCreateTime(new Date());
         System.out.println(sysUser);
         sysUserService.addUser(sysUser);
         System.out.println("要跳了");
         view.setViewName("home/login");
-        return  view;
+        return view;
     }
 
     @RequestMapping("/logout")
@@ -104,5 +104,4 @@ public class SysUserController extends BasicController {
         view.setViewName("home/login");
         return view;
     }
-
 }

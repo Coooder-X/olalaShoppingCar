@@ -15,7 +15,7 @@
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>首页</title>
-
+<%--所有样式路径改为绝对路径，即将..替换为/business--%>
     <link href="/business/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
     <link href="/business/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css"/>
 
