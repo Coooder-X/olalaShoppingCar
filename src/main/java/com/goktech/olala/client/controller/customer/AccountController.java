@@ -72,7 +72,7 @@ public class AccountController extends BasicController {
         String pwd = request.getParameter("password");
 
         ModelAndView view = new ModelAndView();
-        CtmLogin ctmLogin = iCtmInfoService.queryCmtInfoForLogin(email, pwd);// 在登陆表中判断用户是否存在
+        CtmLogin ctmLogin = iCtmInfoService.queryCmtInfoForLoginByName(email);// 在登陆表中判断用户是否存在
         CtmInfo tmp = iCtmInfoService.queryCmtInfoForReg(email);//  可能有已注册的用户未登陆过，因此在用户表中也要判断存在
         if(ctmLogin != null || tmp != null){    //  用户已存在，返回登陆页面
             System.out.println("用户已存在");
