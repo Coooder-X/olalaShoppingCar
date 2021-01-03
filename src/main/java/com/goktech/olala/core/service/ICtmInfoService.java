@@ -9,6 +9,8 @@ public interface ICtmInfoService {
 
     CtmLogin queryCmtInfoForLogin(String userName, String password);
 
+    CtmLogin queryCmtInfoForLoginByName(String userName);
+
     CtmInfo queryCmtInfoForReg(String userName);
 
     CtmLogin findByUser(CtmLogin ctmLogin);
