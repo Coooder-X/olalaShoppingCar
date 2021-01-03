@@ -18,22 +18,22 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <link rel="stylesheet" href="../AmazeUI-2.4.2/assets/css/amazeui.min.css" />
-    <link href="../css/dlstyle.css" rel="stylesheet" type="text/css">
-    <script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-    <script src="../AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+    <link rel="stylesheet" href="/business/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
+    <link href="/business/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <script src="/business/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+    <script src="/business/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 
 </head>
 
 <body>
 
 <div class="login-boxtitle">
-    <a href="home/demo.html"><img alt="" src="../images/logobig.png" /></a>
+    <a href="home/demo.html"><img alt="" src="/business/images/logobig.png" /></a>
 </div>
 
 <div class="res-banner">
     <div class="res-main">
-        <div class="login-banner-bg"><span></span><img src="../images/big.jpg" /></div>
+        <div class="login-banner-bg"><span></span><img src="/business/images/big.jpg" /></div>
         <div class="login-box">
 
             <div class="am-tabs" id="doc-my-tabs">
@@ -44,7 +44,7 @@
 
                 <div class="am-tabs-bd">
                     <div class="am-tab-panel am-active">
-                        <form method="post" action="/sysUser/register">
+                        <form method="post" action="/cntApi/register.do">
 
                             <div class="user-email">
                                 <label for="email"><i class="am-icon-envelope-o"></i></label>
@@ -57,6 +57,9 @@
                             <div class="user-pass">
                                 <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
                                 <input type="password" name="passwordRepeat" id="passwordRepeat" placeholder="确认密码">
+                            </div>
+                            <div class="message">
+                                <span id="errorMsg" style="background-color: #ec2636"><%=request.getAttribute("errorMsg")==null?"":request.getAttribute("errorMsg")%></span><%--账号或密码错误！！！--%>
                             </div>
                             <div class="am-cf">
                                 <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
@@ -73,7 +76,7 @@
                     </div>
 
                     <div class="am-tab-panel">
-                        <form method="post">
+                        <form method="post" action="/cntApi/register.do">
                             <div class="user-phone">
                                 <label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
                                 <input type="tel" name="" id="phone" placeholder="请输入手机号">
@@ -92,15 +95,15 @@
                                 <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
                                 <input type="password" name="" id="passwordRepeat" placeholder="确认密码">
                             </div>
+                            <div class="login-links">
+                                <label for="reader-me">
+                                    <input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+                                </label>
+                            </div>
+                            <div class="am-cf">
+                                <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+                            </div>
                         </form>
-                        <div class="login-links">
-                            <label for="reader-me">
-                                <input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
-                            </label>
-                        </div>
-                        <div class="am-cf">
-                            <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
-                        </div>
 
                         <hr>
                     </div>

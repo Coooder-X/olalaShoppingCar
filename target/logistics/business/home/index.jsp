@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.goktech.olala.server.pojo.customer.CtmLogin" %><%--
   Created by IntelliJ IDEA.
   User: ChenYJ
   Date: 2020/12/29
@@ -15,7 +15,7 @@
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>首页</title>
-
+<%--所有样式路径改为绝对路径，即将..替换为/business--%>
     <link href="/business/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css"/>
     <link href="/business/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css"/>
 
@@ -35,6 +35,7 @@
             <div class="menu-hd">
                 <a href="/business/home/login.jsp" target="_top" class="h">亲，请登录</a>
                 <a href="/business/home/register.jsp" target="_top">免费注册</a>
+<%--                <%=(CtmLogin) session.getAttribute("CTMLOGIN")%>--%>
             </div>
         </div>
     </ul>

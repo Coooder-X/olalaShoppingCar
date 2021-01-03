@@ -9,6 +9,14 @@ public interface ICtmInfoService {
 
     CtmLogin queryCmtInfoForLogin(String userName, String password);
 
+    CtmInfo queryCmtInfoForReg(String userName);
+
+    CtmLogin findByUser(CtmLogin ctmLogin);
+
+    int saveCmtLogin(CtmLogin ctmLogin);    //  新添加的保存用户登陆信息的方法
+
+    CtmLogin queryCmtLoginByID(String customerId);
+
     List<CtmInfo> queryCmtInfoByExample(CtmInfo ctmInfo);
 
     int saveCmtInfo(CtmInfo ctmInfo);

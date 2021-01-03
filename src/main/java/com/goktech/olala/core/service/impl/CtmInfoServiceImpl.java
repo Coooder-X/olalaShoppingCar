@@ -41,6 +41,27 @@ public class CtmInfoServiceImpl implements ICtmInfoService {
     }
 
     @Override
+    public CtmInfo queryCmtInfoForReg(String userName) {
+        return ctmInfoMapper.queryCmtInfoForReg(userName);
+    }
+
+
+    @Override
+    public CtmLogin findByUser(CtmLogin ctmLogin) {
+        return ctmLoginMapper.selectByUser(ctmLogin);
+    }
+
+    @Override
+    public int saveCmtLogin(CtmLogin ctmLogin) {
+        return ctmLoginMapper.insert(ctmLogin);
+    }
+
+    @Override
+    public CtmLogin queryCmtLoginByID(String customerId) {
+        return ctmLoginMapper.selectByID(customerId);
+    }
+
+    @Override
     public List<CtmInfo> queryCmtInfoByExample(CtmInfo ctmInfo) {
         return ctmInfoMapper.selectByExample(ctmInfo);
     }

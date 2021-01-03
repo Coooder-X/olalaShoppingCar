@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 public interface CtmInfoMapper {
-
+    CtmInfo queryCmtInfoForReg(String userName);
     /**
      * 根据客户信息主键删除
      *
@@ -55,6 +55,7 @@ public interface CtmInfoMapper {
      * @param record
      * @return
      */
+
     @SelectProvider(type= CtmInfoSql.class, method = "queryCtmInfoByParam")
     List<CtmInfo> selectByExample(CtmInfo record);
 

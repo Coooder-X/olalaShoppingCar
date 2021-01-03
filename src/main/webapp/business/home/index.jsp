@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.goktech.olala.server.pojo.customer.CtmLogin" %><%--
   Created by IntelliJ IDEA.
   User: ChenYJ
   Date: 2020/12/29
@@ -35,6 +35,7 @@
             <div class="menu-hd">
                 <a href="/business/home/login.jsp" target="_top" class="h">亲，请登录</a>
                 <a href="/business/home/register.jsp" target="_top">免费注册</a>
+<%--                <%=(CtmLogin) session.getAttribute("CTMLOGIN")%>--%>
             </div>
         </div>
     </ul>
