@@ -18,8 +18,13 @@
     select CUSTOMER_ID, LOGIN_NAME, PASSWORD, USER_STATUS, MODIFIED_TIME
     from c_login
   </select>
-    <select id="selectByParam" parameterType="java.lang.String" resultType="com.goktech.olala.server.pojo.customer.CtmLogin">
-        select  * from c_login where LOGIN_NAME=#{arg0} and PASSWORD=#{arg1}
+    <select id="selectByParam" resultMap="BaseResultMap">
+        select * from c_login where LOGIN_NAME=#{arg0} and PASSWORD=#{arg1}<!-- 此处返回值要写resultmap，否则返回对象部分字段为空-->
     </select>
-
+    <select id="selectByID" parameterType="java.lang.String" resultType="com.goktech.olala.server.pojo.customer.CtmLogin">
+        select * from c_login where CUSTOMER_ID=#{customerId}
+    </select>
+    <select id="selectByUser" parameterType="com.goktech.olala.server.pojo.customer.CtmLogin" resultMap="BaseResultMap">
+        select * from c_login where LOGIN_NAME=#{loginName} and PASSWORD=#{password}
+    </select>
 </mapper>

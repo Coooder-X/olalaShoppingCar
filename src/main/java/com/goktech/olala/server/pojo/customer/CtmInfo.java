@@ -1,7 +1,14 @@
 package com.goktech.olala.server.pojo.customer;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+@Data
+@AllArgsConstructor
+//@NoArgsConstructor
 public class CtmInfo {
     private String customerInfId;
 
@@ -34,6 +41,26 @@ public class CtmInfo {
     private Integer userBalance;
 
     private Date modifiedTime;
+
+    public CtmInfo(){
+        customerInfId = "";
+        customerId = "";
+        customerName = "";
+        realName = "";
+        identyCardType = 1;
+        identyCardNo = "";
+        userMobile = "";
+        email = "";
+        gender = 0;
+        birthday = "";
+        customerLevel = 1;
+        customerStatus =
+        userBalance = 0;
+        registerTime = new Date();
+        modifiedTime = new Date();
+        userPoint = 0;
+
+    }
 
     public String getCustomerInfId() {
         return customerInfId;

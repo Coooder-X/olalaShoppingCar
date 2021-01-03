@@ -9,4 +9,8 @@ public interface CtmLoginMapper {
     List<CtmLogin> selectAll();
 
     CtmLogin selectByParam(String userName, String password);
+
+    CtmLogin selectByID(String customerId);
+
+    CtmLogin selectByUser(CtmLogin ctmLogin);
 }
