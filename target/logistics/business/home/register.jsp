@@ -58,6 +58,9 @@
                                 <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
                                 <input type="password" name="passwordRepeat" id="passwordRepeat" placeholder="确认密码">
                             </div>
+                            <div class="message">
+                                <span id="errorMsg" style="background-color: #ec2636"><%=request.getAttribute("errorMsg")==null?"":request.getAttribute("errorMsg")%></span><%--账号或密码错误！！！--%>
+                            </div>
                             <div class="am-cf">
                                 <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
                             </div>
