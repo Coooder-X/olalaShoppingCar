@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmCollectMapper">
+
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmCollect">
+    <id column="COLLECT_ID" jdbcType="INTEGER" property="collectId" />
+    <result column="GOODS_ID" jdbcType="VARCHAR" property="goodsId" />
+    <result column="BUSINESS_ID" jdbcType="VARCHAR" property="businessId" />
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="IS_EXPIRES" jdbcType="BIT" property="isExpires" />
+    <result column="EXPIRES_DATE" jdbcType="TIMESTAMP" property="expiresDate" />
+    <result column="IS_CANCEL" jdbcType="BIT" property="isCancel" />
+    <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from c_collect
+    where COLLECT_ID = #{collectId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmCollect">
+    insert into c_collect (COLLECT_ID, GOODS_ID, BUSINESS_ID, 
+      ADD_TIME, IS_EXPIRES, EXPIRES_DATE, 
+      IS_CANCEL, MODIFIED_TIME)
+    values (#{collectId,jdbcType=INTEGER}, #{goodsId,jdbcType=VARCHAR}, #{businessId,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{isExpires,jdbcType=BIT}, #{expiresDate,jdbcType=TIMESTAMP}, 
+      #{isCancel,jdbcType=BIT}, #{modifiedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmCollect">
+    update c_collect
+    set GOODS_ID = #{goodsId,jdbcType=VARCHAR},
+      BUSINESS_ID = #{businessId,jdbcType=VARCHAR},
+      ADD_TIME = #{addTime,jdbcType=TIMESTAMP},
+      IS_EXPIRES = #{isExpires,jdbcType=BIT},
+      EXPIRES_DATE = #{expiresDate,jdbcType=TIMESTAMP},
+      IS_CANCEL = #{isCancel,jdbcType=BIT},
+      MODIFIED_TIME = #{modifiedTime,jdbcType=TIMESTAMP}
+    where COLLECT_ID = #{collectId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select COLLECT_ID, GOODS_ID, BUSINESS_ID, ADD_TIME, IS_EXPIRES, EXPIRES_DATE, IS_CANCEL, 
+    MODIFIED_TIME
+    from c_collect
+    where COLLECT_ID = #{collectId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select COLLECT_ID, GOODS_ID, BUSINESS_ID, ADD_TIME, IS_EXPIRES, EXPIRES_DATE, IS_CANCEL, 
+    MODIFIED_TIME
+    from c_collect
+  </select>
+
+</mapper>
