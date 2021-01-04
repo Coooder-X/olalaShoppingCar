@@ -72,16 +72,26 @@ public class CtmInfoServiceImpl implements ICtmInfoService {
     }
 
     @Override
+    public CtmInfo queryCtmInfoByCtmID(String ctmID) {
+        return  ctmInfoMapper.queryCtmInfoByCtmID(ctmID);
+    }
+
+    @Override
+    public int insertCtmInfo(CtmInfo ctmInfo) {
+        return ctmInfoMapper.insertCtmInfo(ctmInfo);
+    }
+
+    @Override
     public int saveCmtInfo(CtmInfo ctmInfo) {
         if(null == ctmInfo){
             return 0;
         }
         ctmInfo.setModifiedTime(new Timestamp(new Date().getTime()));
-        if(StringUtils.isNotBlank(ctmInfo.getCustomerInfId())){
+//        if(StringUtils.isNotBlank(ctmInfo.getCustomerInfId())){
             return ctmInfoMapper.updateByPrimaryKey(ctmInfo);
-        }
-        ctmInfo.setRegisterTime(new Timestamp(new Date().getTime()));
-        return ctmInfoMapper.insert(ctmInfo);
+//        }
+//        ctmInfo.setRegisterTime(new Timestamp(new Date().getTime()));
+//        return ctmInfoMapper.insert(ctmInfo);
     }
 
     @Override

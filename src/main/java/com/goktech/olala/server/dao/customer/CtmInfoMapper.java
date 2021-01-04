@@ -10,6 +10,10 @@ import java.util.List;
 
 public interface CtmInfoMapper {
     CtmInfo queryCmtInfoForReg(String userName);
+
+    CtmInfo queryCtmInfoByCtmID(String customerId);
+
+    int insertCtmInfo(CtmInfo ctmInfo);
     /**
      * 根据客户信息主键删除
      *

@@ -21,6 +21,10 @@ public interface ICtmInfoService {
 
     List<CtmInfo> queryCmtInfoByExample(CtmInfo ctmInfo);
 
+    CtmInfo queryCtmInfoByCtmID(String ctmID);
+
+    int insertCtmInfo(CtmInfo ctmInfo);
+
     int saveCmtInfo(CtmInfo ctmInfo);
 
     int removeById(String customerInfId);

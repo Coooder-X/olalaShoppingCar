@@ -50,7 +50,9 @@ public class AccountController extends BasicController {
         ctmLogin.setUserStatus(true);   //  设置用户状态为已登陆
         System.out.println(ctmLogin);
         view.addObject("CTMLOGIN", ctmLogin);
-        request.getSession().setAttribute("USERINFO",ctmLogin.getLoginName());
+        CtmInfo ctmInfo = iCtmInfoService.queryCtmInfoByCtmID(ctmLogin.getCustomerId());
+        System.out.println("USERINFO 插入" + ctmInfo);
+        request.getSession().setAttribute("USERINFO",ctmInfo);
         request.getSession().setAttribute("CTMLOGIN",ctmLogin);
         view.setViewName("home/index");
 
@@ -95,13 +97,15 @@ public class AccountController extends BasicController {
         System.out.println(ctmLogin);
         iCtmInfoService.saveCmtLogin(ctmLogin); //  保存登陆表信息
         CtmInfo ctmInfo = new CtmInfo();
+        ctmInfo.setCustomerId(ctmLogin.getCustomerId());
+        ctmInfo.setCustomerInfId(ctmLogin.getCustomerId());
         if(email.contains("@")){    //  判断邮箱或手机号登陆
             ctmInfo.setEmail(email);
         }else{
             ctmInfo.setUserMobile(email);
         }
         System.out.println("ctmInfo = " + ctmInfo);
-        iCtmInfoService.saveCmtInfo(ctmInfo);   //  保存用户表信息
+        iCtmInfoService.insertCtmInfo(ctmInfo);   //  保存用户表信息
 
         view.setViewName("home/login");
         return view;
@@ -126,5 +130,58 @@ public class AccountController extends BasicController {
 
     public String getRandomID(){  // 随机生成11位字符串作为ID
         return RandomStringUtils.randomAlphanumeric(11);
+    }
+
+    @RequestMapping(value = "/userInfo.do")
+    @ResponseBody
+    public ModelAndView updateInfo(HttpServletRequest request) throws Exception {
+        CtmInfo oldCtmInfo = (CtmInfo) request.getSession().getAttribute("USERINFO");
+        System.out.println("oldCtmInfo = " + oldCtmInfo);
+        System.out.println("设置用户信息");
+        ModelAndView modelAndView = new ModelAndView();
+        String nickName = request.getParameter("user-name2");
+        String name = request.getParameter("user-name");
+        Integer gender = 0;
+        String sex = request.getParameter("radio10");
+        nickName = nickName.isEmpty()? oldCtmInfo.getCustomerName() : nickName;
+        name = name.isEmpty()? oldCtmInfo.getRealName() : name;
+        if(sex == null)
+            gender = oldCtmInfo.getGender();
+        else{
+            if(sex.equals("male")){
+                gender = 2;
+            }else if(sex.equals("female")){
+                gender = 1;
+            }else{
+                gender = 0;
+            }
+        }
+        /*
+        * 生日补上
+        * */
+        String year = request.getParameter("year");
+        String month = request.getParameter("month");
+        String day = request.getParameter("date");
+        String birthday = year + "-" + month + "-" + day;
+
+        if(year == null || month == null || day == null)
+            birthday = oldCtmInfo.getBirthday();
+        oldCtmInfo.setBirthday(birthday);
+
+        String phone = request.getParameter("user-phone");
+        phone = phone.isEmpty()? oldCtmInfo.getUserMobile() : phone;
+        String email = request.getParameter("user-email");
+        email = email.isEmpty()? oldCtmInfo.getEmail() : email;
+        oldCtmInfo.setCustomerName(nickName);
+        oldCtmInfo.setRealName(name);
+        oldCtmInfo.setGender(gender);
+        oldCtmInfo.setEmail(email);
+        oldCtmInfo.setUserMobile(phone);
+        System.out.println(oldCtmInfo);
+        iCtmInfoService.saveCmtInfo(oldCtmInfo);
+        request.getSession().setAttribute("USERINFO",oldCtmInfo);
+
+        modelAndView.setViewName("home/index");
+        return modelAndView;
     }
 }

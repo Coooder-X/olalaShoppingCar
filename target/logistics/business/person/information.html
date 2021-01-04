@@ -7,13 +7,13 @@
 
 		<title>个人资料</title>
 
-		<link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-		<link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="/business/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+		<link href="/business/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-		<link href="../css/personal.css" rel="stylesheet" type="text/css">
-		<link href="../css/infstyle.css" rel="stylesheet" type="text/css">
-		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>			
+		<link href="/business/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/business/css/infstyle.css" rel="stylesheet" type="text/css">
+		<script src="/business/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="/business/AmazeUI-2.4.2/assets/js/amazeui.js"></script>			
 	</head>
 
 	<body>
@@ -37,7 +37,7 @@
 
 							<div class="filePic">
 								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-								<img class="am-circle am-img-thumbnail" src="../images/getAvatar.do.jpg" alt="" />
+								<img class="am-circle am-img-thumbnail" src="/business/images/getAvatar.do.jpg" alt="" />
 							</div>
 
 							<p class="am-form-help">头像</p>
@@ -52,12 +52,12 @@
 
 						<!--个人信息 -->
 						<div class="info-main">
-							<form class="am-form am-form-horizontal">
+							<form class="am-form am-form-horizontal" action="/cntApi/userInfo.do" method="post">
 
 								<div class="am-form-group">
 									<label for="user-name2" class="am-form-label">昵称</label>
 									<div class="am-form-content">
-										<input type="text" id="user-name2" placeholder="nickname">
+										<input type="text" name="user-name2" id="user-name2" placeholder="nickname">
                                           <small>昵称长度不能超过40个汉字</small>
 									</div>
 								</div>
@@ -65,7 +65,7 @@
 								<div class="am-form-group">
 									<label for="user-name" class="am-form-label">姓名</label>
 									<div class="am-form-content">
-										<input type="text" id="user-name" placeholder="name">
+										<input type="text" name="user-name" id="user-name" placeholder="name">
                                          
 									</div>
 								</div>
@@ -113,14 +113,14 @@
 								<div class="am-form-group">
 									<label for="user-phone" class="am-form-label">电话</label>
 									<div class="am-form-content">
-										<input id="user-phone" placeholder="telephonenumber" type="tel">
+										<input id="user-phone" name="user-phone" placeholder="telephonenumber" type="tel">
 
 									</div>
 								</div>
 								<div class="am-form-group">
 									<label for="user-email" class="am-form-label">电子邮件</label>
 									<div class="am-form-content">
-										<input id="user-email" placeholder="Email" type="email">
+										<input id="user-email" name="user-email" placeholder="Email" type="email">
 
 									</div>
 								</div>
@@ -168,10 +168,10 @@
 	</body>
 	<script>
 		$(function () {
-			$("header").load("../person/header.html");
-			$(".nav-table").load("../person/nav.html");
-			$("div.footer").load("../home/footer.html");
-			$("aside").load("../home/aside.html");
+			$("header").load("/business/person/header.html");
+			$(".nav-table").load("/business/person/nav.html");
+			$("div.footer").load("/business/home/footer.html");
+			$("aside").load("/business/home/aside.html");
 		})
 	</script>
 </html>

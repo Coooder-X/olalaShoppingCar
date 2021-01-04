@@ -40,6 +40,28 @@ public class CtmInfo {
 
     private Integer userBalance;
 
+    @Override
+    public String toString() {
+        return "CtmInfo{" +
+                "customerInfId='" + customerInfId + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", realName='" + realName + '\'' +
+                ", identyCardType=" + identyCardType +
+                ", identyCardNo='" + identyCardNo + '\'' +
+                ", userMobile='" + userMobile + '\'' +
+                ", email='" + email + '\'' +
+                ", gender=" + gender +
+                ", birthday='" + birthday + '\'' +
+                ", userPoint=" + userPoint +
+                ", registerTime=" + registerTime +
+                ", customerLevel=" + customerLevel +
+                ", customerStatus=" + customerStatus +
+                ", userBalance=" + userBalance +
+                ", modifiedTime=" + modifiedTime +
+                '}';
+    }
+
     private Date modifiedTime;
 
     public CtmInfo(){

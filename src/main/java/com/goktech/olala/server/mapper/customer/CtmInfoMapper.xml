@@ -71,4 +71,12 @@
     <select id="queryCmtInfoForReg" parameterType="java.lang.String" resultType="com.goktech.olala.server.pojo.customer.CtmInfo">
         select * from c_customer_info where CUSTOMER_NAME=#{customerName}
     </select>
+    <select id="queryCtmInfoByCtmID" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from c_customer_info where CUSTOMER_ID=#{customerId}
+    </select>
+    <insert id="insertCtmInfo" parameterType="com.goktech.olala.server.pojo.customer.CtmInfo">
+        insert into c_customer_info values (#{customerInfId}, #{customerId}, #{customerName}, #{realName}
+        , #{identyCardType}, #{identyCardNo}, #{userMobile}, #{email}, #{gender}, #{birthday},
+        #{userPoint}, #{registerTime}, #{customerLevel}, #{userBalance}, #{modifiedTime})
+    </insert>
 </mapper>
