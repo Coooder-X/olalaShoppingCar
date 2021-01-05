@@ -35,13 +35,11 @@ public class SysUserController extends BasicController {
     @RequestMapping(value = "/login.do")
     @ResponseBody
     public ModelAndView login(HttpServletRequest request) throws Exception {
-        request.setCharacterEncoding("UTF-8");
-        System.out.println("登陆");
-        String userName = request.getParameter("userName");
-        String pwd = request.getParameter("pwd");
+        System.out.println("系统用户登陆");
+        String userName = request.getParameter("account");
+        String pwd = request.getParameter("password");
         System.out.println(userName + " " + pwd);
         ModelAndView view = new ModelAndView();
-        view.addObject("result", "0");
 
 //        Subject subject = SecurityUtils.getSubject();
 //        UsernamePasswordToken token = new UsernamePasswordToken(userName, pwd);
@@ -64,48 +62,27 @@ public class SysUserController extends BasicController {
         else{
             System.out.println("用户不存在");
             request.setAttribute("errorMsg", "账号或密码错误！！！");
-            view.setViewName("forward:/business/home/login.jsp");
+            view.setViewName("../backstage/index");
             return view;
         }
         view.addObject("SYSUSER",sysUser);
         System.out.println("要跳了");
-        view.setViewName("home/index");
+        view.setViewName("../backstage/index");
         return view;
     }
 
     @RequestMapping("/register")    //  使用邮箱注册
     public ModelAndView register(HttpServletRequest request){
-        System.out.println("注册");
-        String userName = request.getParameter("email");
-        String pwd = request.getParameter("password");
         ModelAndView view = new ModelAndView();
-        SysUser sysUser = new SysUser(userName, pwd);
-        sysUser = sysUserService.querySysUserInfoByName(userName);
-        if(sysUser != null){    //  用户已存在，返回登陆页面
-            System.out.println("用户已存在");
-            request.setAttribute("errorMsg", "用户已存在！");
-            view.setViewName("home/register");
-            return  view;
-        }else{
-            sysUser = new SysUser(userName, pwd);
-        }
-        System.out.println(userName + " " + pwd);
-        sysUser.setEmail(userName);
-        sysUser.setStatus((byte) 1);
-        sysUser.setCreateBy(userName);  //  邮箱注册，但用户名为not null字段，在此默认设为邮箱
-        sysUser.setCreateTime(new Date());
-        System.out.println(sysUser);
-        sysUserService.addUser(sysUser);
-        System.out.println("要跳了");
-        view.setViewName("home/login");
         return view;
     }
 
     @RequestMapping("/logout")
     public ModelAndView logout(HttpServletRequest request) {
+        System.out.println("logout");
         ModelAndView view = new ModelAndView();
         request.getSession().invalidate();
-        view.setViewName("home/login");
+        view.setViewName("../backstage/login");
         return view;
     }
 }
