@@ -8,6 +8,10 @@ import java.util.List;
 
 public interface ICtmInfoService {
 
+    CtmConsignee queryAddress(Integer addID);
+
+    int updateAdd(CtmConsignee consignee);
+
     int removeAddByAddId(Integer addID);
 
     List<CtmConsignee> findAllAddress(String cmtID);

@@ -37,10 +37,6 @@
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
-
-            <%
-//                List<CtmConsignee> list = (List<CtmConsignee>) session.getAttribute("ADDLIST");
-            %>
             <div class="user-address">
                 <!--标题 -->
                 <div class="am-cf am-padding">
@@ -60,11 +56,11 @@
                         <%
                             if(it.getIsDefault()){
                         %>
-                            <span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
+                                <span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
                         <%
                             }else{
                         %>
-                            <span class="new-option-r"><i class="am-icon-check-circle"></i>设为默认</span>
+                                <span href=<%="/cntApi/setDefaultAddress.do?addID=" + it.getCustomerAddrId()%> class="new-option-r"><i class="am-icon-check-circle"></i>设为默认</span>
                         <%
                             }
                         %>
@@ -86,7 +82,7 @@
 <%--                                <a href="javascript:void(0);" onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>--%>
 <%--                            </div>--%>
                             <div class="new-addr-btn">
-                                <a href="#"><i class="am-icon-edit"></i>编辑</a>
+                                <a href=<%="/cntApi/to_updateAddress.do?addID=" + it.getCustomerAddrId()%>><i class="am-icon-edit"></i>编辑</a>
                                 <span class="new-addr-bar">|</span>
                                 <a href=<%="/cntApi/deleteAddress.do?addID=" + it.getCustomerAddrId()%>><i class="am-icon-trash"></i>删除</a>
                             </div>
@@ -125,20 +121,11 @@
                                     </div>
                                 </div>
                                 <div class="am-form-group">
-                                    <label class="am-form-label">所在地</label>
-                                    <div class="am-form-content address">
-                                        <select data-am-selected name="province" id="province">
-                                            <option value="a">浙江省</option>
-                                            <option value="b" selected>湖北省</option>
-                                        </select>
-                                        <select data-am-selected name="city" id="city">
-                                            <option value="a">温州市</option>
-                                            <option value="b" selected>武汉市</option>
-                                        </select>
-                                        <select data-am-selected name="area" id="area">
-                                            <option value="a">瑞安区</option>
-                                            <option value="b" selected>洪山区</option>
-                                        </select>
+                                    <label for="user-name" class="am-form-label">所在地</label>
+                                    <div class="am-form-content">
+                                        <input type="text" name="province" id="province" placeholder="省">
+                                        <input type="text" name="city" id="city" placeholder="市">
+                                        <input type="text" name="area" id="area" placeholder="区">
                                     </div>
                                 </div>
 

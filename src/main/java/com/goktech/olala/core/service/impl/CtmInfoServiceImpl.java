@@ -32,6 +32,16 @@ public class CtmInfoServiceImpl implements ICtmInfoService {
 
 
     @Override
+    public CtmConsignee queryAddress(Integer addID) {
+        return ctmConsigneeMapper.selectByPrimaryKey(addID);
+    }
+
+    @Override
+    public int updateAdd(CtmConsignee consignee) {
+        return ctmConsigneeMapper.updateByPrimaryKey(consignee);
+    }
+
+    @Override
     public int removeAddByAddId(Integer addID) {
         return ctmConsigneeMapper.deleteByPrimaryKey(addID);
     }

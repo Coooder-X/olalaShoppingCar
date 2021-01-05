@@ -270,8 +270,72 @@ public class AccountController extends BasicController {
         List<CtmConsignee> list = iCtmInfoService.findAllAddress(ctmInfo.getCustomerId());
         System.out.println(list);
         view.addObject("ADDLIST", list);
-        view.setViewName("/person/address");
+        view.setViewName("redirect:/cntApi/listAddress.do");
         return view;
     }
 
+    @RequestMapping(value = "/setDefaultAddress.do")
+    @ResponseBody
+    public ModelAndView setDefaultAddress(Integer addID, HttpServletRequest request) {
+        System.out.println("setDefaultAddress.do");
+        /*
+        * 待做： 在设置本条地址为默认时，先把所有地址设为非默认
+        * */
+        ModelAndView view = new ModelAndView();
+        System.out.println(addID);
+        CtmConsignee consignee = iCtmInfoService.queryAddress(addID);
+        consignee.setIsDefault(true);
+        Integer num = iCtmInfoService.updateAdd(consignee);
+        System.out.println("更新了 " + num + " 条");
+
+        view.setViewName("redirect:/cntApi/listAddress.do");
+        return view;
+    }
+    @RequestMapping(value = "/to_updateAddress.do")
+    @ResponseBody
+    public ModelAndView toUpdateAddress(Integer addID, HttpServletRequest request) {
+        System.out.println("to_updateAddress.do");
+        ModelAndView view = new ModelAndView();
+
+        CtmConsignee consignee = iCtmInfoService.queryAddress(addID);
+        view.addObject("oldAddress", consignee);
+        view.addObject("addID", addID);
+        view.setViewName("/person/address_update");
+        return view;
+    }
+    @RequestMapping(value = "/updateAddress.do")
+    @ResponseBody
+    public ModelAndView updateAddress(Integer addID, HttpServletRequest request) {
+        System.out.println("updateAddress.do");
+        ModelAndView view = new ModelAndView();
+        System.out.println("修改地址");
+        CtmConsignee oldAdd = iCtmInfoService.queryAddress(addID);
+
+        String userName = request.getParameter("user-name");
+        String phone = request.getParameter("user-phone");
+        String province = request.getParameter("province");
+        String city = request.getParameter("city");
+        String area = request.getParameter("area");
+        String dedails = request.getParameter("user-intro");
+        CtmInfo  ctmInfo = (CtmInfo) request.getSession().getAttribute("USERINFO");
+
+        if(!userName.isEmpty())
+            oldAdd.setUserName(userName);
+        if(!phone.isEmpty())
+            oldAdd.setPhone(phone);
+        if(!province.isEmpty())
+            oldAdd.setProvince(province);
+        if(!city.isEmpty())
+            oldAdd.setCity(city);
+        if(!area.isEmpty())
+            oldAdd.setDistrict(area);
+        if(!dedails.isEmpty())
+            oldAdd.setAddress(dedails);
+
+        System.out.println(oldAdd);
+        iCtmInfoService.updateAdd(oldAdd);
+
+        view.setViewName("redirect:/cntApi/listAddress.do");
+        return view;
+    }
 }
