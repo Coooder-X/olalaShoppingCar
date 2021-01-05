@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface ICtmInfoService {
 
+    int updatePwdByID(String ctmID, String password);
+
     CtmLogin queryCmtInfoForLogin(String userName, String password);
 
     CtmLogin queryCmtInfoForLoginByName(String userName);

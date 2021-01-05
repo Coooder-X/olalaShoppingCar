@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.Random;
 
@@ -184,4 +185,26 @@ public class AccountController extends BasicController {
         modelAndView.setViewName("home/index");
         return modelAndView;
     }
+
+    @RequestMapping(value = "/changepwd.do")
+    @ResponseBody
+    public ModelAndView changePwd(HttpServletRequest request) {
+        System.out.println("修改密码");
+        ModelAndView view = new ModelAndView();
+        CtmLogin oldUser = (CtmLogin) request.getSession().getAttribute("CTMLOGIN");
+        System.out.println("olduser = " + oldUser);
+        String ctmID = oldUser.getCustomerId();
+        String oldpwd = (String) request.getParameter("user-old-password");
+        String newpwd = (String) request.getParameter("user-new-password");
+        String reptpwd = (String) request.getParameter("user-confirm-password");
+        System.out.println("newpwd = " + newpwd);
+        System.out.println("oldpwd = " + oldpwd);
+        System.out.println("rpt = " + reptpwd);
+        Integer num = iCtmInfoService.updatePwdByID(ctmID, newpwd);
+        System.out.println("num = " + num);
+
+        view.setViewName("person/safety");
+        return view;
+    }
+
 }

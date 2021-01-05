@@ -25,6 +25,13 @@ public class CtmInfoServiceImpl implements ICtmInfoService {
     @Autowired
     CtmLoginMapper ctmLoginMapper;
 
+    @Override
+    public int updatePwdByID(String ctmID, String password) {
+        if(password == null)
+            return 0;
+        return ctmLoginMapper.updatePwdByID(ctmID, password);
+    }
+
     /**
      * 前台客户登录
      *
