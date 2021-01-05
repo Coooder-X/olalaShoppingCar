@@ -10,7 +10,7 @@ public interface CtmConsigneeMapper {
 
     CtmConsignee selectByPrimaryKey(Integer customerAddrId);
 
-    List<CtmConsignee> selectAll();
+    List<CtmConsignee> selectAll(String ctmID);
 
     int updateByPrimaryKey(CtmConsignee record);
 }

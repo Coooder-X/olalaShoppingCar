@@ -2,8 +2,10 @@ package com.goktech.olala.core.service.impl;
 
 import com.goktech.olala.core.req.CtmInfoReq;
 import com.goktech.olala.core.service.ICtmInfoService;
+import com.goktech.olala.server.dao.customer.CtmConsigneeMapper;
 import com.goktech.olala.server.dao.customer.CtmInfoMapper;
 import com.goktech.olala.server.dao.customer.CtmLoginMapper;
+import com.goktech.olala.server.pojo.customer.CtmConsignee;
 import com.goktech.olala.server.pojo.customer.CtmInfo;
 import com.goktech.olala.server.pojo.customer.CtmLogin;
 import com.mysql.cj.PreparedQuery;
@@ -24,6 +26,25 @@ public class CtmInfoServiceImpl implements ICtmInfoService {
 
     @Autowired
     CtmLoginMapper ctmLoginMapper;
+
+    @Autowired
+    CtmConsigneeMapper ctmConsigneeMapper;
+
+
+    @Override
+    public int removeAddByAddId(Integer addID) {
+        return ctmConsigneeMapper.deleteByPrimaryKey(addID);
+    }
+
+    @Override
+    public List<CtmConsignee> findAllAddress(String cmtID) {
+        return ctmConsigneeMapper.selectAll(cmtID);
+    }
+
+    @Override
+    public int saveAddress(CtmConsignee consignee) {
+        return ctmConsigneeMapper.insert(consignee);
+    }
 
     @Override
     public int updatePwdByID(String ctmID, String password) {

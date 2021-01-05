@@ -3,12 +3,15 @@ package com.goktech.olala.client.controller.customer;
 import com.goktech.olala.client.controller.basic.BasicController;
 import com.goktech.olala.core.service.ICtmInfoService;
 import com.goktech.olala.core.service.ISysUserService;
+import com.goktech.olala.server.pojo.customer.CtmConsignee;
 import com.goktech.olala.server.pojo.customer.CtmInfo;
 import com.goktech.olala.server.pojo.customer.CtmLogin;
 import com.goktech.olala.server.pojo.sys.SysUser;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 @Controller
@@ -52,7 +56,10 @@ public class AccountController extends BasicController {
         System.out.println(ctmLogin);
         view.addObject("CTMLOGIN", ctmLogin);
         CtmInfo ctmInfo = iCtmInfoService.queryCtmInfoByCtmID(ctmLogin.getCustomerId());
-        System.out.println("USERINFO 插入" + ctmInfo);
+//        System.out.println("USERINFO 插入" + ctmInfo);
+//        List<CtmConsignee> list = iCtmInfoService.findAllAddress(ctmInfo.getCustomerId());
+//        System.out.println(list);
+//        request.getSession().setAttribute("ADDLIST", list);
         request.getSession().setAttribute("USERINFO",ctmInfo);
         request.getSession().setAttribute("CTMLOGIN",ctmLogin);
         view.setViewName("home/index");
@@ -189,8 +196,8 @@ public class AccountController extends BasicController {
     @RequestMapping(value = "/changepwd.do")
     @ResponseBody
     public ModelAndView changePwd(HttpServletRequest request) {
-        System.out.println("修改密码");
         ModelAndView view = new ModelAndView();
+        System.out.println("修改密码");
         CtmLogin oldUser = (CtmLogin) request.getSession().getAttribute("CTMLOGIN");
         System.out.println("olduser = " + oldUser);
         String ctmID = oldUser.getCustomerId();
@@ -204,6 +211,66 @@ public class AccountController extends BasicController {
         System.out.println("num = " + num);
 
         view.setViewName("person/safety");
+        return view;
+    }
+
+    @RequestMapping(value = "/addAddress.do")
+    @ResponseBody
+    public ModelAndView addAddress(HttpServletRequest request) {
+        ModelAndView view = new ModelAndView();
+        System.out.println("增加地址");
+        String userName = request.getParameter("user-name");
+        String phone = request.getParameter("user-phone");
+        String province = request.getParameter("province");
+        String city = request.getParameter("city");
+        String area = request.getParameter("area");
+        String dedails = request.getParameter("user-intro");
+//        System.out.println(userName + " " + phone + " " + province);
+        CtmConsignee consignee = new CtmConsignee();
+        CtmInfo  ctmInfo = (CtmInfo) request.getSession().getAttribute("USERINFO");
+
+        consignee.setCustomerId(ctmInfo.getCustomerId());
+        consignee.setProvince(province);
+        consignee.setCity(city);
+        consignee.setDistrict(area);
+        consignee.setAddress(dedails);
+        consignee.setUserName(userName);
+        consignee.setPhone(phone);
+
+        System.out.println(consignee);
+        Integer num = iCtmInfoService.saveAddress(consignee);
+        System.out.println("num = " + num);
+
+        view.setViewName("redirect:/cntApi/listAddress.do");
+        return view;
+    }
+
+    @RequestMapping(value = "/listAddress.do")
+//    @ResponseBody
+    public ModelAndView showListAddress(HttpServletRequest request) {
+        ModelAndView view = new ModelAndView();
+        System.out.println("/listAddress.do");
+        CtmInfo ctmInfo = (CtmInfo) request.getSession().getAttribute("USERINFO");
+        List<CtmConsignee> list = iCtmInfoService.findAllAddress(ctmInfo.getCustomerId());
+        System.out.println(list);
+        view.addObject("ADDLIST", list);
+        view.setViewName("/person/address");
+        return view;
+    }
+
+    @RequestMapping(value = "/deleteAddress.do")
+    @ResponseBody
+    public ModelAndView deleteAddress(Integer addID, HttpServletRequest request) {
+        ModelAndView view = new ModelAndView();
+        System.out.println(addID);
+        Integer num = iCtmInfoService.removeAddByAddId(addID);
+        System.out.println("delete " + num + " 条");
+
+        CtmInfo ctmInfo = (CtmInfo) request.getSession().getAttribute("USERINFO");
+        List<CtmConsignee> list = iCtmInfoService.findAllAddress(ctmInfo.getCustomerId());
+        System.out.println(list);
+        view.addObject("ADDLIST", list);
+        view.setViewName("/person/address");
         return view;
     }
 

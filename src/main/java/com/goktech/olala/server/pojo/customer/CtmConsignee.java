@@ -1,7 +1,12 @@
 package com.goktech.olala.server.pojo.customer;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
+@AllArgsConstructor
 public class CtmConsignee {
     private Integer customerAddrId;
 
@@ -20,6 +25,37 @@ public class CtmConsignee {
     private Boolean isDefault;
 
     private Date modifiedTime;
+
+    private String userName;
+
+    private String phone;
+
+    public String getScPhone(){
+        return phone.substring(0, 3) + "****" + phone.substring(7, phone.length());
+    }
+    @Override
+    public String toString() {
+        return "CtmConsignee{" +
+                "customerAddrId=" + customerAddrId +
+                ", customerId='" + customerId + '\'' +
+                ", zip='" + zip + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", district='" + district + '\'' +
+                ", address='" + address + '\'' +
+                ", isDefault=" + isDefault +
+                ", modifiedTime=" + modifiedTime +
+                ", userName='" + userName + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
+
+    public CtmConsignee() {
+        customerAddrId = null;
+        customerId = zip = province = city = district = address = userName = phone = null;
+        isDefault = false;
+        modifiedTime = new Date();
+    }
 
     public Integer getCustomerAddrId() {
         return customerAddrId;

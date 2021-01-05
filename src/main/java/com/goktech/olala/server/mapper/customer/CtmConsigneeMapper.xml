@@ -12,6 +12,8 @@
         <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
         <result column="IS_DEFAULT" jdbcType="BIT" property="isDefault"/>
         <result column="MODIFIED_TIME" jdbcType="TIMESTAMP" property="modifiedTime"/>
+        <result column="USER_NAME" jdbcType="VARCHAR" property="userName"/>
+        <result column="PHONE" jdbcType="VARCHAR" property="phone"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from c_consignee
@@ -20,11 +22,12 @@
     <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmConsignee">
     insert into c_consignee (CUSTOMER_ADDR_ID, CUSTOMER_ID, ZIP, 
       PROVINCE, CITY, DISTRICT, 
-      ADDRESS, IS_DEFAULT, MODIFIED_TIME
+      ADDRESS, IS_DEFAULT, MODIFIED_TIME, USER_NAME, PHONE
       )
     values (#{customerAddrId,jdbcType=INTEGER}, #{customerId,jdbcType=VARCHAR}, #{zip,jdbcType=VARCHAR}, 
       #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{isDefault,jdbcType=BIT}, #{modifiedTime,jdbcType=TIMESTAMP}
+      #{address,jdbcType=VARCHAR}, #{isDefault,jdbcType=BIT}, #{modifiedTime,jdbcType=TIMESTAMP},
+      #{userName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}
       )
   </insert>
     <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmConsignee">
@@ -36,18 +39,20 @@
       DISTRICT = #{district,jdbcType=VARCHAR},
       ADDRESS = #{address,jdbcType=VARCHAR},
       IS_DEFAULT = #{isDefault,jdbcType=BIT},
-      MODIFIED_TIME = #{modifiedTime,jdbcType=TIMESTAMP}
+      MODIFIED_TIME = #{modifiedTime,jdbcType=TIMESTAMP},
+      USER_NAME = #{userName, jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR}
     where CUSTOMER_ADDR_ID = #{customerAddrId,jdbcType=INTEGER}
   </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select CUSTOMER_ADDR_ID, CUSTOMER_ID, ZIP, PROVINCE, CITY, DISTRICT, ADDRESS, IS_DEFAULT, 
-    MODIFIED_TIME
+    MODIFIED_TIME, USER_NAME, PHONE
     from c_consignee
     where CUSTOMER_ADDR_ID = #{customerAddrId,jdbcType=INTEGER}
   </select>
-    <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" parameterType="java.lang.String" resultMap="BaseResultMap">
     select CUSTOMER_ADDR_ID, CUSTOMER_ID, ZIP, PROVINCE, CITY, DISTRICT, ADDRESS, IS_DEFAULT, 
-    MODIFIED_TIME
-    from c_consignee
+    MODIFIED_TIME, USER_NAME, PHONE
+    from c_consignee where CUSTOMER_ID=#{customerId}
   </select>
 </mapper>

@@ -37,6 +37,10 @@
 <div class="center">
     <div class="col-main">
         <div class="main-wrap">
+
+            <%
+//                List<CtmConsignee> list = (List<CtmConsignee>) session.getAttribute("ADDLIST");
+            %>
             <div class="user-address">
                 <!--标题 -->
                 <div class="am-cf am-padding">
