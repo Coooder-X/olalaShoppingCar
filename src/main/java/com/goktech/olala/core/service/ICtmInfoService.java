@@ -42,6 +42,8 @@ public interface ICtmInfoService {
 
     int removeById(String customerInfId);
 
+    List<CtmInfo> findAllCtmInfo();
+
     /**
      * 修改会员的状态
      *

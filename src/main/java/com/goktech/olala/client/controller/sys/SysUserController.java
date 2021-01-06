@@ -86,36 +86,45 @@ public class SysUserController extends BasicController {
         return view;
     }
 
-    @RequestMapping(value = "/addMenber.do")
-    @ResponseBody
-    public ModelAndView addMenber(HttpServletRequest request) {
-        ModelAndView view = new ModelAndView();
-        System.out.println("/addMenber.do");
-        String userName = request.getParameter("username");
-        String sex = request.getParameter("sex");
-        Integer gender = 0;
-        if(sex.equals("male"))
-            gender = 2;
-        else if(sex.equals("female"))
-            gender = 1;
-        String mobile = request.getParameter("mobile");
-        String email = request.getParameter("email");
-        CtmInfo ctmInfo = new CtmInfo();
-        ctmInfo.setUserMobile(mobile);
-        ctmInfo.setEmail(email);
-        ctmInfo.setCustomerName(userName);
-        ctmInfo.setGender(gender);
-        String id = getRandomID();
-        ctmInfo.setCustomerId(id);
-        ctmInfo.setCustomerInfId(id);
-//        System.out.println("新增用户 = " + ctmInfo);
-        Integer num = iCtmInfoService.insertCtmInfo(ctmInfo);
-//        System.out.println("新增 " + num + " 条");
+//    @RequestMapping(value = "/addMenber.do")
+//    @ResponseBody
+//    public ModelAndView addMenber(HttpServletRequest request) {
+//        ModelAndView view = new ModelAndView();
+//        String userName = request.getParameter("username");
+//        String sex = request.getParameter("sex");
+//        Integer gender = 0;
+//        if(sex.equals("male"))
+//            gender = 2;
+//        else if(sex.equals("female"))
+//            gender = 1;
+//        String mobile = request.getParameter("mobile");
+//        String email = request.getParameter("email");
+//        CtmInfo ctmInfo = new CtmInfo();
+//        ctmInfo.setUserMobile(mobile);
+//        ctmInfo.setEmail(email);
+//        ctmInfo.setCustomerName(userName);
+//        ctmInfo.setGender(gender);
+//        String id = getRandomID();
+//        ctmInfo.setCustomerId(id);
+//        ctmInfo.setCustomerInfId(id);
+////        System.out.println("新增用户 = " + ctmInfo);
+//        Integer num = iCtmInfoService.insertCtmInfo(ctmInfo);
+////        System.out.println("新增 " + num + " 条");
+//        view.setViewName("redirect:/sysUser/showMemberList.do");
+//        return view;
+//    }
 
-//        List<CtmInfo> list = iCtmInfoService.
-        view.setViewName("../backstage/member-list");
-        return view;
-    }
+//    @RequestMapping(value = "/showMemberList.do")
+//    @ResponseBody
+//    public ModelAndView showMemberList(HttpServletRequest request) {
+//        ModelAndView view = new ModelAndView();
+//        List<CtmInfo> list = iCtmInfoService.findAllCtmInfo();
+//        System.out.println("ctmInfo List = " + list);
+//        view.addObject("CTMINFOLIST", list);
+//        view.setViewName("../backstage/member-list");
+//        return view;
+//    }
+
     static public String getRandomID(){  // 随机生成11位字符串作为ID
         return RandomStringUtils.randomAlphanumeric(11);
     }

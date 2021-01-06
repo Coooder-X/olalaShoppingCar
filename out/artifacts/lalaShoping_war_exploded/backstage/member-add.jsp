@@ -38,7 +38,7 @@
 </head>
 <body>
 <article class="page-container">
-    <form class="form form-horizontal" method="post" action="/sysUser/addMenber.do" >
+    <form class="form form-horizontal" method="post" action="/memberApi/save.do"<%--"/sysUser/addMenber.do"--%> >
         <%-- id="form-member-add">--%>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>

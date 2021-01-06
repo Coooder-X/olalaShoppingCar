@@ -211,4 +211,12 @@ public class CtmInfo {
     public void setModifiedTime(Date modifiedTime) {
         this.modifiedTime = modifiedTime;
     }
+
+    public String getGenderString(){
+        if(gender == 2)
+            return "男";
+        else if(gender == 1)
+            return "女";
+        return "保密";
+    }
 }

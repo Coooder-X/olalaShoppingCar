@@ -141,6 +141,11 @@ public class CtmInfoServiceImpl implements ICtmInfoService {
     }
 
     @Override
+    public List<CtmInfo> findAllCtmInfo() {
+        return ctmInfoMapper.selectAll();
+    }
+
+    @Override
     public int updateStatus(String customerId, Integer status) {
         if(StringUtils.isBlank(customerId)){
             return 0;
