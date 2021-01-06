@@ -9,25 +9,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfcd3124-6d89-4d42-9f36-af720dd10c64" name="Default Changelist" comment="个人信息 填写功能">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/client/controller/backstage/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/client/controller/backstage/MemberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/client/controller/customer/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/client/controller/customer/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/core/service/ICtmInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/core/service/ICtmInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/server/dao/customer/CtmInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/server/dao/customer/CtmInfoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/server/mapper/customer/CtmInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/server/mapper/customer/CtmInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/business/home/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/business/home/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/client/controller/customer/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/client/controller/customer/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/core/service/ICtmInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/core/service/ICtmInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/server/dao/customer/CtmInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/server/dao/customer/CtmInfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/server/mapper/customer/CtmInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/server/mapper/customer/CtmInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/business/home/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/business/home/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/goktech/olala/client/controller/customer/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/goktech/olala/client/controller/customer/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/goktech/olala/core/service/ICtmInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/goktech/olala/core/service/ICtmInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.class" afterDir="false" />
-    </list>
+    <list default="true" id="bfcd3124-6d89-4d42-9f36-af720dd10c64" name="Default Changelist" comment="个人信息 填写功能" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -256,7 +238,7 @@
       <workItem from="1609593709151" duration="44028000" />
       <workItem from="1609760325530" duration="952000" />
       <workItem from="1609761311369" duration="8793000" />
-      <workItem from="1609811635597" duration="61706000" />
+      <workItem from="1609811635597" duration="62328000" />
     </task>
     <task id="LOCAL-00001" summary="重新做的">
       <created>1609340562268</created>

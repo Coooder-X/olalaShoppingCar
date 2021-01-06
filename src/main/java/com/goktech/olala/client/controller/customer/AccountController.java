@@ -92,13 +92,6 @@ public class AccountController extends BasicController {
         request.setAttribute("secondMenuBussinessOne", secondMenuBussinessOne);
         request.setAttribute("secondMenuBussinessTwo", secondMenuBussinessTwo);
 
-//        view.addObject("secondMenuHouseHold", secondMenuHouseHold);
-//        view.addObject("secondMenuTV", secondMenuTV);
-//        view.addObject("secondMenuairConditioner", secondMenuairConditioner);
-//        view.addObject("secondMenuWashingMeachine", secondMenuWashingMeachine);
-//        view.addObject("secondMenuBussinessOne", secondMenuBussinessOne);
-//        view.addObject("secondMenuBussinessTwo", secondMenuBussinessTwo);
-
         //----------------------------------------------------
 
         return view;
