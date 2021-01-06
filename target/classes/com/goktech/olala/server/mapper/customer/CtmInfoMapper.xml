@@ -79,4 +79,17 @@
         , #{identyCardType}, #{identyCardNo}, #{userMobile}, #{email}, #{gender}, #{birthday},
         #{userPoint}, #{registerTime}, #{customerLevel}, #{userBalance}, #{modifiedTime})
     </insert>
+<!--  Lu  -->
+    <select id="querySecondMenu"  parameterType="java.lang.String" resultType="java.lang.String">
+        select  CATEGORY_NAME from g_category where PARENT_ID = #{type}
+    </select>
+
+    <select id="querySecondMenuBussiness"  parameterType="java.lang.String" resultType="java.lang.String">
+        select g_bussiness from g_buss where id = #{type}
+    </select>
+
+    <select id="querySecondMenuNumber"  resultType="com.goktech.olala.server.pojo.customer.CTMSecondMenuDirction">
+--         select * from g_direction
+    </select>
+
 </mapper>

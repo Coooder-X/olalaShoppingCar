@@ -12,13 +12,19 @@
     <list default="true" id="bfcd3124-6d89-4d42-9f36-af720dd10c64" name="Default Changelist" comment="个人信息 填写功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/client/controller/backstage/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/client/controller/backstage/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/client/controller/customer/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/client/controller/customer/AccountController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/core/service/ICtmInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/core/service/ICtmInfoService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/server/dao/customer/CtmInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/server/dao/customer/CtmInfoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/client/controller/backstage/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/client/controller/backstage/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/server/mapper/customer/CtmInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/WEB-INF/classes/com/goktech/olala/server/mapper/customer/CtmInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/business/home/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lalaShoping_war_exploded/business/home/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/client/controller/customer/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/client/controller/customer/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/core/service/ICtmInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/core/service/ICtmInfoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/server/dao/customer/CtmInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/server/dao/customer/CtmInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/goktech/olala/server/mapper/customer/CtmInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/goktech/olala/server/mapper/customer/CtmInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/business/home/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/business/home/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/goktech/olala/client/controller/customer/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/goktech/olala/client/controller/customer/AccountController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/goktech/olala/core/service/ICtmInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/goktech/olala/core/service/ICtmInfoService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/goktech/olala/core/service/impl/CtmInfoServiceImpl.class" afterDir="false" />
     </list>
@@ -33,6 +39,7 @@
         <option value="jsf" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -222,12 +229,6 @@
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
                 <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Tomcat 8.5.50" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -255,7 +256,7 @@
       <workItem from="1609593709151" duration="44028000" />
       <workItem from="1609760325530" duration="952000" />
       <workItem from="1609761311369" duration="8793000" />
-      <workItem from="1609811635597" duration="57251000" />
+      <workItem from="1609811635597" duration="61706000" />
     </task>
     <task id="LOCAL-00001" summary="重新做的">
       <created>1609340562268</created>
@@ -409,66 +410,66 @@
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state x="527" y="165" key="FileChooserDialogImpl/0.0.1418.759@0.0.1418.759" timestamp="1609763338276" />
-    <state width="941" height="163" key="GridCell.Tab.0.bottom" timestamp="1609914554670">
+    <state width="941" height="46" key="GridCell.Tab.0.bottom" timestamp="1609934267627">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.0.bottom/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.0.bottom/0.0.1418.759@0.0.1418.759" timestamp="1609914554670" />
-    <state width="941" height="163" key="GridCell.Tab.0.center" timestamp="1609914554670">
+    <state width="941" height="46" key="GridCell.Tab.0.bottom/0.0.1418.759@0.0.1418.759" timestamp="1609934267627" />
+    <state width="941" height="46" key="GridCell.Tab.0.center" timestamp="1609934267627">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.0.center/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.0.center/0.0.1418.759@0.0.1418.759" timestamp="1609914554670" />
-    <state width="941" height="163" key="GridCell.Tab.0.left" timestamp="1609914554669">
+    <state width="941" height="46" key="GridCell.Tab.0.center/0.0.1418.759@0.0.1418.759" timestamp="1609934267627" />
+    <state width="941" height="46" key="GridCell.Tab.0.left" timestamp="1609934267627">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.0.left/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716223" />
-    <state width="941" height="163" key="GridCell.Tab.0.left/0.0.1418.759@0.0.1418.759" timestamp="1609914554669" />
-    <state width="941" height="163" key="GridCell.Tab.0.right" timestamp="1609914554670">
+    <state width="941" height="46" key="GridCell.Tab.0.left/0.0.1418.759@0.0.1418.759" timestamp="1609934267627" />
+    <state width="941" height="46" key="GridCell.Tab.0.right" timestamp="1609934267627">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.0.right/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.0.right/0.0.1418.759@0.0.1418.759" timestamp="1609914554670" />
-    <state width="941" height="163" key="GridCell.Tab.1.bottom" timestamp="1609914554576">
+    <state width="941" height="46" key="GridCell.Tab.0.right/0.0.1418.759@0.0.1418.759" timestamp="1609934267627" />
+    <state width="941" height="46" key="GridCell.Tab.1.bottom" timestamp="1609934267475">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.1.bottom/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.1.bottom/0.0.1418.759@0.0.1418.759" timestamp="1609914554576" />
-    <state width="941" height="163" key="GridCell.Tab.1.center" timestamp="1609914554576">
+    <state width="941" height="46" key="GridCell.Tab.1.bottom/0.0.1418.759@0.0.1418.759" timestamp="1609934267475" />
+    <state width="941" height="46" key="GridCell.Tab.1.center" timestamp="1609934267475">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.1.center/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.1.center/0.0.1418.759@0.0.1418.759" timestamp="1609914554576" />
-    <state width="941" height="163" key="GridCell.Tab.1.left" timestamp="1609914554576">
+    <state width="941" height="46" key="GridCell.Tab.1.center/0.0.1418.759@0.0.1418.759" timestamp="1609934267475" />
+    <state width="941" height="46" key="GridCell.Tab.1.left" timestamp="1609934267475">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.1.left/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.1.left/0.0.1418.759@0.0.1418.759" timestamp="1609914554576" />
-    <state width="941" height="163" key="GridCell.Tab.1.right" timestamp="1609914554576">
+    <state width="941" height="46" key="GridCell.Tab.1.left/0.0.1418.759@0.0.1418.759" timestamp="1609934267475" />
+    <state width="941" height="46" key="GridCell.Tab.1.right" timestamp="1609934267475">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.1.right/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.1.right/0.0.1418.759@0.0.1418.759" timestamp="1609914554576" />
-    <state width="941" height="163" key="GridCell.Tab.2.bottom" timestamp="1609914554576">
+    <state width="941" height="46" key="GridCell.Tab.1.right/0.0.1418.759@0.0.1418.759" timestamp="1609934267475" />
+    <state width="941" height="46" key="GridCell.Tab.2.bottom" timestamp="1609934267476">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.2.bottom/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.2.bottom/0.0.1418.759@0.0.1418.759" timestamp="1609914554576" />
-    <state width="941" height="163" key="GridCell.Tab.2.center" timestamp="1609914554576">
+    <state width="941" height="46" key="GridCell.Tab.2.bottom/0.0.1418.759@0.0.1418.759" timestamp="1609934267476" />
+    <state width="941" height="46" key="GridCell.Tab.2.center" timestamp="1609934267475">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.2.center/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.2.center/0.0.1418.759@0.0.1418.759" timestamp="1609914554576" />
-    <state width="941" height="163" key="GridCell.Tab.2.left" timestamp="1609914554576">
+    <state width="941" height="46" key="GridCell.Tab.2.center/0.0.1418.759@0.0.1418.759" timestamp="1609934267475" />
+    <state width="941" height="46" key="GridCell.Tab.2.left" timestamp="1609934267475">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.2.left/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.2.left/0.0.1418.759@0.0.1418.759" timestamp="1609914554576" />
-    <state width="941" height="163" key="GridCell.Tab.2.right" timestamp="1609914554576">
+    <state width="941" height="46" key="GridCell.Tab.2.left/0.0.1418.759@0.0.1418.759" timestamp="1609934267475" />
+    <state width="941" height="46" key="GridCell.Tab.2.right" timestamp="1609934267476">
       <screen x="0" y="0" width="1418" height="759" />
     </state>
     <state width="941" height="85" key="GridCell.Tab.2.right/0.0.1418.759/6.-1080.1418.759@6.-1080.1418.759" timestamp="1609691716224" />
-    <state width="941" height="163" key="GridCell.Tab.2.right/0.0.1418.759@0.0.1418.759" timestamp="1609914554576" />
+    <state width="941" height="46" key="GridCell.Tab.2.right/0.0.1418.759@0.0.1418.759" timestamp="1609934267476" />
     <state width="941" height="222" key="GridCell.Tab.3.bottom" timestamp="1609904082856">
       <screen x="0" y="0" width="1418" height="759" />
     </state>

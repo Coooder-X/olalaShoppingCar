@@ -2,6 +2,7 @@ package com.goktech.olala.server.dao.customer;
 
 import com.goktech.olala.core.req.CtmInfoReq;
 import com.goktech.olala.server.dao.sql.CtmInfoSql;
+import com.goktech.olala.server.pojo.customer.CTMSecondMenuDirction;
 import com.goktech.olala.server.pojo.customer.CtmInfo;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
@@ -9,6 +10,18 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 public interface CtmInfoMapper {
+    /*
+    * Lu
+    * */
+    List<String> querySecondMenu(String type);
+
+    List<String> querySecondMenuBussiness(String type);
+
+    List<CTMSecondMenuDirction> querySecondMenuNumber();
+    /*
+     * Lu
+     * */
+
     int updateMember(CtmInfo ctmInfo);
 
     CtmInfo queryCmtInfoForReg(String userName);

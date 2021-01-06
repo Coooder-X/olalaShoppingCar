@@ -1,4 +1,5 @@
-<%@ page import="com.goktech.olala.server.pojo.customer.CtmLogin" %><%--
+<%@ page import="com.goktech.olala.server.pojo.customer.CtmLogin" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: ChenYJ
   Date: 2020/12/29
@@ -85,6 +86,139 @@
             <div class="clear"></div>
         </div>
         <!--侧边导航 -->
+<%--        <div id="nav" class="navfull" style="position: static;">--%>
+<%--            <div class="area clearfix">--%>
+<%--                <div class="category-content" id="guide_2">--%>
+<%--                    <div class="category" style="box-shadow:none ;margin-top: 2px;">--%>
+<%--                        <ul class="category-list navTwo" id="js_climit_li">--%>
+<%--                            <li>--%>
+<%--                                <div class="category-info">--%>
+<%--                                    <h3 class="category-name b-category-name"><i><img src="/business/images/cake.png"></i><a--%>
+<%--                                            class="ml-22" title="点心">点心/蛋糕</a></h3>--%>
+<%--                                    <em>&gt;</em></div>--%>
+<%--                                <div class="menu-item menu-in top">--%>
+<%--                                    <div class="area-in">--%>
+<%--                                        <div class="area-bg">--%>
+<%--                                            <div class="menu-srot">--%>
+<%--                                                <div class="sort-side">--%>
+<%--                                                    <dl class="dl-sort">--%>
+<%--                                                        <dt><span title="蛋糕">蛋糕</span></dt>--%>
+<%--                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>--%>
+<%--                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>--%>
+<%--                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>--%>
+<%--                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>--%>
+<%--                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>--%>
+<%--                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>--%>
+<%--                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>--%>
+<%--                                                    </dl>--%>
+<%--                                                    <dl class="dl-sort">--%>
+<%--                                                        <dt><span title="蛋糕">点心</span></dt>--%>
+<%--                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>--%>
+<%--                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>--%>
+<%--                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>--%>
+<%--                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>--%>
+<%--                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>--%>
+<%--                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>--%>
+<%--                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>--%>
+<%--                                                    </dl>--%>
+<%--                                                </div>--%>
+<%--                                                <div class="brand-side">--%>
+<%--                                                    <dl class="dl-sort">--%>
+<%--                                                        <dt><span>实力商家</span></dt>--%>
+<%--                                                        <dd><a rel="nofollow" title="呵官方旗舰店" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span class="red">呵官方旗舰店</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="格瑞旗舰店" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span>格瑞旗舰店</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="飞彦大厂直供" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span class="red">飞彦大厂直供</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="红e·艾菲妮" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span>红e·艾菲妮</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="本真旗舰店" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span class="red">本真旗舰店</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="杭派女装批发网" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span class="red">杭派女装批发网</span></a></dd>--%>
+<%--                                                    </dl>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                                <b class="arrow"></b>--%>
+<%--                            </li>--%>
+<%--                            <li>--%>
+<%--                                <div class="category-info">--%>
+<%--                                    <h3 class="category-name b-category-name"><i><img src="/business/images/cookies.png"></i><a--%>
+<%--                                            class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>--%>
+<%--                                    <em>&gt;</em></div>--%>
+<%--                                <div class="menu-item menu-in top">--%>
+<%--                                    <div class="area-in">--%>
+<%--                                        <div class="area-bg">--%>
+<%--                                            <div class="menu-srot">--%>
+<%--                                                <div class="sort-side">--%>
+<%--                                                    <dl class="dl-sort">--%>
+<%--                                                        <dt><span title="饼干">饼干</span></dt>--%>
+<%--                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>--%>
+<%--                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>--%>
+<%--                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>--%>
+<%--                                                    </dl>--%>
+<%--                                                    <dl class="dl-sort">--%>
+<%--                                                        <dt><span title="薯片">薯片</span></dt>--%>
+<%--                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>--%>
+<%--                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>--%>
+<%--                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>--%>
+<%--                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>--%>
+<%--                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>--%>
+<%--                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>--%>
+<%--                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>--%>
+<%--                                                    </dl>--%>
+<%--                                                    <dl class="dl-sort">--%>
+<%--                                                        <dt><span title="蛋糕">虾条</span></dt>--%>
+<%--                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>--%>
+<%--                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>--%>
+<%--                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>--%>
+<%--                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>--%>
+<%--                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>--%>
+<%--                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>--%>
+<%--                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>--%>
+<%--                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>--%>
+<%--                                                    </dl>--%>
+<%--                                                </div>--%>
+<%--                                                <div class="brand-side">--%>
+<%--                                                    <dl class="dl-sort">--%>
+<%--                                                        <dt><span>实力商家</span></dt>--%>
+<%--                                                        <dd><a rel="nofollow" title="YYKCLOT" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span class="red">YYKCLOT</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="池氏品牌男装" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span class="red">池氏品牌男装</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="男装日志" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span>男装日志</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="索比诺官方旗舰店" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span>索比诺官方旗舰店</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="onTTno傲徒" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span class="red">onTTno傲徒</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="玛狮路男装旗舰店" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span>玛狮路男装旗舰店</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="劳威特品牌男装" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span>劳威特品牌男装</span></a></dd>--%>
+<%--                                                        <dd><a rel="nofollow" title="卡斯郎世家批发城" target="_blank" href="#"--%>
+<%--                                                               rel="nofollow"><span class="red">卡斯郎世家批发城</span></a></dd>--%>
+<%--                                                    </dl>--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+
+<%-- ------------------------------       Lu      ------------------------------------------ --%>
         <div id="nav" class="navfull" style="position: static;">
             <div class="area clearfix">
                 <div class="category-content" id="guide_2">
@@ -93,7 +227,7 @@
                             <li>
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img src="/business/images/cake.png"></i><a
-                                            class="ml-22" title="点心">点心/蛋糕</a></h3>
+                                            class="ml-22" title="点心">电器/电视</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
                                     <div class="area-in">
@@ -101,45 +235,44 @@
                                             <div class="menu-srot">
                                                 <div class="sort-side">
                                                     <dl class="dl-sort">
-                                                        <dt><span title="蛋糕">蛋糕</span></dt>
-                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        <dt><span title="电器"> 电器 </span></dt>
+                                                        <%
+                                                            List<String> data = (List<String>) request.getAttribute("secondMenuHouseHold");
+                                                            if(data != null){
+                                                                for(String it : data){
+                                                        %>
+                                                                    <dd><a title="蒸蛋糕" href="#"><span><%=it%></span></a></dd>
+                                                        <%
+                                                                }
+                                                            }
+                                                        %>
                                                     </dl>
                                                     <dl class="dl-sort">
-                                                        <dt><span title="蛋糕">点心</span></dt>
-                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        <dt><span title="蛋糕">电视</span></dt>
+                                                        <%
+                                                            data = (List<String>) request.getAttribute("secondMenuTV");
+                                                            if(data != null){
+                                                                for(String it: data){
+                                                        %>
+
+                                                        <dd><a title="蒸蛋糕" href="#"><span><%=it%></span></a></dd>
+                                                        <%}}%>
                                                     </dl>
                                                 </div>
                                                 <div class="brand-side">
                                                     <dl class="dl-sort">
                                                         <dt><span>实力商家</span></dt>
-                                                        <dd><a rel="nofollow" title="呵官方旗舰店" target="_blank" href="#"
-                                                               rel="nofollow"><span class="red">呵官方旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="格瑞旗舰店" target="_blank" href="#"
-                                                               rel="nofollow"><span>格瑞旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="飞彦大厂直供" target="_blank" href="#"
-                                                               rel="nofollow"><span class="red">飞彦大厂直供</span></a></dd>
-                                                        <dd><a rel="nofollow" title="红e·艾菲妮" target="_blank" href="#"
-                                                               rel="nofollow"><span>红e·艾菲妮</span></a></dd>
-                                                        <dd><a rel="nofollow" title="本真旗舰店" target="_blank" href="#"
-                                                               rel="nofollow"><span class="red">本真旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="杭派女装批发网" target="_blank" href="#"
-                                                               rel="nofollow"><span class="red">杭派女装批发网</span></a></dd>
+                                                        <%
+                                                            data = (List<String>) request.getAttribute("secondMenuBussinessOne");
+                                                            if(data != null){
+                                                                for(String it: data){
+                                                        %>
+                                                                    <dd><a rel="nofollow" title="YYKCLOT" target="_blank" href="#"
+                                                                           rel="nofollow"><span class="red"><%=it%></span></a></dd>
+                                                        <%
+                                                                }
+                                                            }
+                                                        %>
                                                     </dl>
                                                 </div>
                                             </div>
@@ -151,7 +284,7 @@
                             <li>
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img src="/business/images/cookies.png"></i><a
-                                            class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
+                                            class="ml-22" title="饼干、膨化">空调/洗衣机</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
                                     <div class="area-in">
@@ -159,63 +292,49 @@
                                             <div class="menu-srot">
                                                 <div class="sort-side">
                                                     <dl class="dl-sort">
-                                                        <dt><span title="饼干">饼干</span></dt>
-                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dt><span title="饼干">空调</span></dt>
+                                                        <%
+                                                            data = (List<String>) request.getAttribute("secondMenuairConditioner");
+                                                            if(data != null){
+                                                                for(String it: data){
+                                                        %>
+
+                                                        <dd><a title="蒸蛋糕" href="#"><span><%=it%></span></a></dd>
+                                                        <%}}%>
                                                     </dl>
                                                     <dl class="dl-sort">
-                                                        <dt><span title="薯片">薯片</span></dt>
-                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                        <dt><span title="薯片">洗衣机</span></dt>
+                                                        <%
+                                                            data = (List<String>) request.getAttribute("secondMenuWashingMeachine");
+                                                            if(data != null){
+                                                                for(String it: data){
+                                                        %>
+                                                        <dd><a title="蒸蛋糕" href="#"><span><%=it%></span></a></dd>
+                                                        <%}}%>
                                                     </dl>
-                                                    <dl class="dl-sort">
-                                                        <dt><span title="蛋糕">虾条</span></dt>
-                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-                                                    </dl>
+
                                                 </div>
                                                 <div class="brand-side">
                                                     <dl class="dl-sort">
                                                         <dt><span>实力商家</span></dt>
+                                                        <%
+                                                            data = (List<String>) request.getAttribute("secondMenuBussinessTwo");
+                                                            if(data != null){
+                                                                for(String it: data){
+                                                        %>
                                                         <dd><a rel="nofollow" title="YYKCLOT" target="_blank" href="#"
-                                                               rel="nofollow"><span class="red">YYKCLOT</span></a></dd>
-                                                        <dd><a rel="nofollow" title="池氏品牌男装" target="_blank" href="#"
-                                                               rel="nofollow"><span class="red">池氏品牌男装</span></a></dd>
-                                                        <dd><a rel="nofollow" title="男装日志" target="_blank" href="#"
-                                                               rel="nofollow"><span>男装日志</span></a></dd>
-                                                        <dd><a rel="nofollow" title="索比诺官方旗舰店" target="_blank" href="#"
-                                                               rel="nofollow"><span>索比诺官方旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="onTTno傲徒" target="_blank" href="#"
-                                                               rel="nofollow"><span class="red">onTTno傲徒</span></a></dd>
-                                                        <dd><a rel="nofollow" title="玛狮路男装旗舰店" target="_blank" href="#"
-                                                               rel="nofollow"><span>玛狮路男装旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="劳威特品牌男装" target="_blank" href="#"
-                                                               rel="nofollow"><span>劳威特品牌男装</span></a></dd>
-                                                        <dd><a rel="nofollow" title="卡斯郎世家批发城" target="_blank" href="#"
-                                                               rel="nofollow"><span class="red">卡斯郎世家批发城</span></a></dd>
+                                                               rel="nofollow"><span class="red"><%=it%></span></a></dd>
+                                                        <%}}%>
                                                     </dl>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <b class="arrow"></b>
+                            </li>
+
+<%-- ------------------------------       Lu      ------------------------------------------ --%>
                                 <b class="arrow"></b>
                             </li>
                             <li>

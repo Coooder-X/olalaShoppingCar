@@ -3,6 +3,7 @@ package com.goktech.olala.client.controller.customer;
 import com.goktech.olala.client.controller.basic.BasicController;
 import com.goktech.olala.core.service.ICtmInfoService;
 import com.goktech.olala.core.service.ISysUserService;
+import com.goktech.olala.server.pojo.customer.CTMSecondMenuDirction;
 import com.goktech.olala.server.pojo.customer.CtmConsignee;
 import com.goktech.olala.server.pojo.customer.CtmInfo;
 import com.goktech.olala.server.pojo.customer.CtmLogin;
@@ -63,6 +64,42 @@ public class AccountController extends BasicController {
         request.getSession().setAttribute("USERINFO",ctmInfo);
         request.getSession().setAttribute("CTMLOGIN",ctmLogin);
         view.setViewName("home/index");
+
+        //-------------------------------------------------
+
+        //二级内容
+        List<CTMSecondMenuDirction> secondMenuNumber = iCtmInfoService.querySecondMenuNumber();
+        System.out.println(secondMenuNumber);
+        for(CTMSecondMenuDirction it: secondMenuNumber){
+            System.out.println("lyh 6666");
+            if(it == null) break;
+            System.out.println(it.getGood_name() + " " + it.getGood_id());
+        }
+        List<String> secondMenuHouseHold = iCtmInfoService.querySecondMenu("1");
+        List<String> secondMenuTV = iCtmInfoService.querySecondMenu("56");
+        List<String> secondMenuairConditioner = iCtmInfoService.querySecondMenu("57");
+        List<String> secondMenuWashingMeachine = iCtmInfoService.querySecondMenu("58");
+        List<String> secondMenuBussinessOne = iCtmInfoService.querySecondMenuBussiness("1");
+        List<String> secondMenuBussinessTwo = iCtmInfoService.querySecondMenuBussiness("2");
+        System.out.println("2222222 lyh");
+        for(String it: secondMenuHouseHold){
+            System.out.println(it);
+        }
+        request.setAttribute("secondMenuHouseHold", secondMenuHouseHold);
+        request.setAttribute("secondMenuTV", secondMenuTV);
+        request.setAttribute("secondMenuairConditioner", secondMenuairConditioner);
+        request.setAttribute("secondMenuWashingMeachine", secondMenuWashingMeachine);
+        request.setAttribute("secondMenuBussinessOne", secondMenuBussinessOne);
+        request.setAttribute("secondMenuBussinessTwo", secondMenuBussinessTwo);
+
+//        view.addObject("secondMenuHouseHold", secondMenuHouseHold);
+//        view.addObject("secondMenuTV", secondMenuTV);
+//        view.addObject("secondMenuairConditioner", secondMenuairConditioner);
+//        view.addObject("secondMenuWashingMeachine", secondMenuWashingMeachine);
+//        view.addObject("secondMenuBussinessOne", secondMenuBussinessOne);
+//        view.addObject("secondMenuBussinessTwo", secondMenuBussinessTwo);
+
+        //----------------------------------------------------
 
         return view;
     }

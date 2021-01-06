@@ -5,6 +5,7 @@ import com.goktech.olala.core.service.ICtmInfoService;
 import com.goktech.olala.server.dao.customer.CtmConsigneeMapper;
 import com.goktech.olala.server.dao.customer.CtmInfoMapper;
 import com.goktech.olala.server.dao.customer.CtmLoginMapper;
+import com.goktech.olala.server.pojo.customer.CTMSecondMenuDirction;
 import com.goktech.olala.server.pojo.customer.CtmConsignee;
 import com.goktech.olala.server.pojo.customer.CtmInfo;
 import com.goktech.olala.server.pojo.customer.CtmLogin;
@@ -29,6 +30,22 @@ public class CtmInfoServiceImpl implements ICtmInfoService {
 
     @Autowired
     CtmConsigneeMapper ctmConsigneeMapper;
+
+
+    @Override
+    public List<String> querySecondMenu(String type) {
+        return ctmInfoMapper.querySecondMenu(type);
+    }
+
+    @Override
+    public List<String> querySecondMenuBussiness(String type) {
+        return ctmInfoMapper.querySecondMenuBussiness(type);
+    }
+
+    @Override
+    public List<CTMSecondMenuDirction> querySecondMenuNumber() {
+        return ctmInfoMapper.querySecondMenuNumber();
+    }
 
 
     @Override
