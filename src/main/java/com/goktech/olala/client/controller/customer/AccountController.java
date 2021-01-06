@@ -136,7 +136,7 @@ public class AccountController extends BasicController {
         return view;
     }
 
-    public String getRandomID(){  // 随机生成11位字符串作为ID
+    static public String getRandomID(){  // 随机生成11位字符串作为ID
         return RandomStringUtils.randomAlphanumeric(11);
     }
 
@@ -275,7 +275,7 @@ public class AccountController extends BasicController {
     }
 
     @RequestMapping(value = "/setDefaultAddress.do")
-    @ResponseBody
+//    @ResponseBody
     public ModelAndView setDefaultAddress(Integer addID, HttpServletRequest request) {
         System.out.println("setDefaultAddress.do");
         /*

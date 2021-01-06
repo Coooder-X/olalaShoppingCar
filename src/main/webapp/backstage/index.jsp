@@ -41,10 +41,10 @@
                 <ul class="cl">
                     <li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="javascript:;" onclick="article_add('添加资讯','/backstage/article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-                            <li><a href="javascript:;" onclick="picture_add('添加图片','/backstage/picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-                            <li><a href="javascript:;" onclick="product_add('添加产品','/backstage/product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-                            <li><a href="javascript:;" onclick="member_add('添加用户','/backstage/member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
+                            <li><a href="javascript:;" onclick="article_add('添加资讯','/backstage/article-add.jsp')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
+                            <li><a href="javascript:;" onclick="picture_add('添加图片','/backstage/picture-add.jsp')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
+                            <li><a href="javascript:;" onclick="product_add('添加产品','/backstage/product-add.jsp')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
+                            <li><a href="javascript:;" onclick="member_add('添加用户','/backstage/member-add.jsp','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -57,7 +57,7 @@
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
                             <li><a href="#">切换账户</a></li>
-                            <li><a href="/sysUser/logout">退出</a></li>
+                            <li><a href="/sysUser/logout">退出</a></li>       <!-- 用户退出 -->
                         </ul>
                     </li>
                     <li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
@@ -82,7 +82,7 @@
             <dt><i class="Hui-iconfont">&#xe613;</i> 图片管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="picture-list.html" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
+                    <li><a data-href="/backstage/picture-list.html" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -90,9 +90,9 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="product-brand.html" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
-                    <li><a data-href="product-category.html" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
-                    <li><a data-href="product-list.html" data-title="产品管理" href="javascript:void(0)">产品管理</a></li>
+                    <li><a data-href="/backstage/product-brand.jsp" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
+                    <li><a data-href="/backstage/product-category.jsp" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
+                    <li><a data-href="/backstage/product-list.jsp" data-title="产品管理" href="javascript:void(0)">产品管理</a></li>
                 </ul>
             </dd>
         </dl>
@@ -100,8 +100,8 @@
             <dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="member-list.html" data-title="会员列表" href="javascript:;">会员列表</a></li>
-                    <li><a data-href="member-del.html" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
+                    <li><a data-href="/backstage/member-list.jsp" data-title="会员列表" href="javascript:;">会员列表</a></li>
+                    <li><a data-href="/backstage/member-del.jsp" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
                 </ul>
             </dd>
         </dl>
