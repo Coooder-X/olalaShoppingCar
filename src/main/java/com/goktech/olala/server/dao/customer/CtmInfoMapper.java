@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 public interface CtmInfoMapper {
+    int updateMember(CtmInfo ctmInfo);
+
     CtmInfo queryCmtInfoForReg(String userName);
 
     CtmInfo queryCtmInfoByCtmID(String customerId);

@@ -52,8 +52,16 @@ public class MemberController extends BasicController {
     public ModelAndView saveMember(HttpServletRequest request) throws Exception{
         ModelAndView view = new ModelAndView();
         CtmInfo ctmInfo = build(request);
-        int result = ctmInfoService.insertCtmInfo(ctmInfo);
-        view.addObject("RESULT", result);
+        CtmInfo res = ctmInfoService.queryCtmInfoByCtmID(ctmInfo.getCustomerId());
+        System.out.println("res = " + res);
+        if(res != null) {
+            System.out.println(" != null");
+            ctmInfoService.updateMember(ctmInfo);
+        }
+        else
+        /*int result = */
+            ctmInfoService.insertCtmInfo(ctmInfo);
+//        view.addObject("RESULT", result);
         view.setViewName("redirect:/memberApi/showMemberList.do");
         return view;
     }

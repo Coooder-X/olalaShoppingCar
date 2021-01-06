@@ -7,6 +7,7 @@ import com.goktech.olala.server.pojo.customer.CtmLogin;
 import java.util.List;
 
 public interface ICtmInfoService {
+    int updateMember(CtmInfo ctmInfo);
 
     CtmConsignee queryAddress(Integer addID);
 
