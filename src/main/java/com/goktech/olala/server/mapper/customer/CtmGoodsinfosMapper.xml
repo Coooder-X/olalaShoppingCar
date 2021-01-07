@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmGoodsinfosMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmGoodsinfos">
+    <id column="GOODS_ID" jdbcType="VARCHAR" property="goodsId" />
+    <result column="GOODS_SN" jdbcType="VARCHAR" property="goodsSn" />
+    <result column="GOODS_NAME" jdbcType="VARCHAR" property="goodsName" />
+    <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
+    <result column="CATY_ID" jdbcType="VARCHAR" property="catyId" />
+    <result column="CATY_SN" jdbcType="VARCHAR" property="catySn" />
+    <result column="BUSINESS_ID" jdbcType="VARCHAR" property="businessId" />
+    <result column="EFFECTIVE_DATE" jdbcType="TIMESTAMP" property="effectiveDate" />
+    <result column="EXPIRY_DAYS" jdbcType="INTEGER" property="expiryDays" />
+    <result column="GOODS_BRIEF" jdbcType="VARCHAR" property="goodsBrief" />
+    <result column="MARKET_PRICE" jdbcType="INTEGER" property="marketPrice" />
+    <result column="DISCOUNT" jdbcType="INTEGER" property="discount" />
+    <result column="SHOP_PRICE" jdbcType="INTEGER" property="shopPrice" />
+    <result column="PROMOTE_PRICE" jdbcType="INTEGER" property="promotePrice" />
+    <result column="PROMOTE_START_DATE" jdbcType="TIMESTAMP" property="promoteStartDate" />
+    <result column="PROMOTE_END_DATE" jdbcType="TIMESTAMP" property="promoteEndDate" />
+    <result column="COUPON_SN" jdbcType="VARCHAR" property="couponSn" />
+    <result column="IS_ONSALE" jdbcType="BIT" property="isOnsale" />
+    <result column="SHIP_FEE" jdbcType="INTEGER" property="shipFee" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="GOODS_DESC" jdbcType="LONGVARCHAR" property="goodsDesc" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from g_goods
+    where GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmGoodsinfos">
+    insert into g_goods (GOODS_ID, GOODS_SN, GOODS_NAME, 
+      KEYWORDS, CATY_ID, CATY_SN, 
+      BUSINESS_ID, EFFECTIVE_DATE, EXPIRY_DAYS, 
+      GOODS_BRIEF, MARKET_PRICE, DISCOUNT, 
+      SHOP_PRICE, PROMOTE_PRICE, PROMOTE_START_DATE, 
+      PROMOTE_END_DATE, COUPON_SN, IS_ONSALE, 
+      SHIP_FEE, CREATE_TIME, CREATE_BY, 
+      UPDATE_TIME, UPDATE_BY, GOODS_DESC
+      )
+    values (#{goodsId,jdbcType=VARCHAR}, #{goodsSn,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, 
+      #{keywords,jdbcType=VARCHAR}, #{catyId,jdbcType=VARCHAR}, #{catySn,jdbcType=VARCHAR}, 
+      #{businessId,jdbcType=VARCHAR}, #{effectiveDate,jdbcType=TIMESTAMP}, #{expiryDays,jdbcType=INTEGER}, 
+      #{goodsBrief,jdbcType=VARCHAR}, #{marketPrice,jdbcType=INTEGER}, #{discount,jdbcType=INTEGER}, 
+      #{shopPrice,jdbcType=INTEGER}, #{promotePrice,jdbcType=INTEGER}, #{promoteStartDate,jdbcType=TIMESTAMP}, 
+      #{promoteEndDate,jdbcType=TIMESTAMP}, #{couponSn,jdbcType=VARCHAR}, #{isOnsale,jdbcType=BIT}, 
+      #{shipFee,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{goodsDesc,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmGoodsinfos">
+    update g_goods
+    set GOODS_SN = #{goodsSn,jdbcType=VARCHAR},
+      GOODS_NAME = #{goodsName,jdbcType=VARCHAR},
+      KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      CATY_ID = #{catyId,jdbcType=VARCHAR},
+      CATY_SN = #{catySn,jdbcType=VARCHAR},
+      BUSINESS_ID = #{businessId,jdbcType=VARCHAR},
+      EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      EXPIRY_DAYS = #{expiryDays,jdbcType=INTEGER},
+      GOODS_BRIEF = #{goodsBrief,jdbcType=VARCHAR},
+      MARKET_PRICE = #{marketPrice,jdbcType=INTEGER},
+      DISCOUNT = #{discount,jdbcType=INTEGER},
+      SHOP_PRICE = #{shopPrice,jdbcType=INTEGER},
+      PROMOTE_PRICE = #{promotePrice,jdbcType=INTEGER},
+      PROMOTE_START_DATE = #{promoteStartDate,jdbcType=TIMESTAMP},
+      PROMOTE_END_DATE = #{promoteEndDate,jdbcType=TIMESTAMP},
+      COUPON_SN = #{couponSn,jdbcType=VARCHAR},
+      IS_ONSALE = #{isOnsale,jdbcType=BIT},
+      SHIP_FEE = #{shipFee,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_BY = #{createBy,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
+      GOODS_DESC = #{goodsDesc,jdbcType=LONGVARCHAR}
+    where GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select GOODS_ID, GOODS_SN, GOODS_NAME, KEYWORDS, CATY_ID, CATY_SN, BUSINESS_ID, EFFECTIVE_DATE, 
+    EXPIRY_DAYS, GOODS_BRIEF, MARKET_PRICE, DISCOUNT, SHOP_PRICE, PROMOTE_PRICE, PROMOTE_START_DATE, 
+    PROMOTE_END_DATE, COUPON_SN, IS_ONSALE, SHIP_FEE, CREATE_TIME, CREATE_BY, UPDATE_TIME, 
+    UPDATE_BY, GOODS_DESC
+    from g_goods
+    where GOODS_ID = #{goodsId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" parameterType="String" resultMap="BaseResultMap">
+    select GOODS_ID, GOODS_SN, GOODS_NAME, KEYWORDS, CATY_ID, CATY_SN, BUSINESS_ID, EFFECTIVE_DATE,
+    EXPIRY_DAYS, GOODS_BRIEF, MARKET_PRICE, DISCOUNT, SHOP_PRICE, PROMOTE_PRICE, PROMOTE_START_DATE,
+    PROMOTE_END_DATE, COUPON_SN, IS_ONSALE, SHIP_FEE, CREATE_TIME, CREATE_BY, UPDATE_TIME,
+    UPDATE_BY, GOODS_DESC
+    from g_goods
+  </select>
+</mapper>

@@ -6,8 +6,8 @@
 <!--        <id column="name" jdbcType="VARCHAR" property="goodName" />-->
 <!--        <result column="id" jdbcType="VARCHAR" property="goodID"/>-->
 <!--    </resultMap>-->
-    <select id="select" parameterType="java.lang.String" resultType="com.goktech.olala.server.pojo.customer.CtmGoodsinformation">
-            select name , id from g_direction where name like concat('%',#{name},'%')
+    <select id="select" parameterType="java.lang.String" resultType="com.goktech.olala.server.pojo.customer.CtmGoodsinfos">
+            select * from g_category where CATEGORY_NAME like concat('%',#{name},'%')
     </select>
     <select id="selectone" parameterType="java.lang.String" resultType="com.goktech.olala.server.pojo.customer.CtmGoodsinfo">
 --             select * from g_direction where name=#{name} and id=#{id};

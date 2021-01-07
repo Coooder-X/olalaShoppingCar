@@ -385,15 +385,13 @@ public class AccountController extends BasicController {
     @ResponseBody
     public ModelAndView serach(HttpServletRequest request) throws  Exception{
         String searchInput = request.getParameter("index_none_header_sysc");
-        System.out.println(searchInput);
         if(searchInput == null || searchInput.equals("")){
             ModelAndView view = new ModelAndView();
             view.setViewName("/home/search");
             return view;
         }
-        System.out.println(searchInput);
         ModelAndView view = new ModelAndView();
-        List<CtmGoodsinformation> ctmGoods = ctmsearchService.select(searchInput);
+        List<CtmGoodsinfos> ctmGoods = ctmsearchService.select(searchInput);
         System.out.println(ctmGoods);
 
         view.setViewName("/home/search");
