@@ -3,73 +3,48 @@ package com.goktech.olala.server.pojo.customer;
 import java.util.Date;
 
 public class CtmGoodsinfos {
-    private String goodsId;
+    private Integer categoryId;
+
+    private String categoryName;
+
+    private String parentId;
+
+    private String keywords;
 
     @Override
     public String toString() {
         return "CtmGoodsinfos{" +
-                "goodsId='" + goodsId + '\'' +
-                ", goodsSn='" + goodsSn + '\'' +
-                ", goodsName='" + goodsName + '\'' +
+                "categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", parentId='" + parentId + '\'' +
                 ", keywords='" + keywords + '\'' +
-                ", catyId='" + catyId + '\'' +
-                ", catySn='" + catySn + '\'' +
-                ", businessId='" + businessId + '\'' +
-                ", effectiveDate=" + effectiveDate +
-                ", expiryDays=" + expiryDays +
-                ", goodsBrief='" + goodsBrief + '\'' +
-                ", marketPrice=" + marketPrice +
-                ", discount=" + discount +
-                ", shopPrice=" + shopPrice +
-                ", promotePrice=" + promotePrice +
-                ", promoteStartDate=" + promoteStartDate +
-                ", promoteEndDate=" + promoteEndDate +
-                ", couponSn='" + couponSn + '\'' +
-                ", isOnsale=" + isOnsale +
-                ", shipFee=" + shipFee +
+                ", catyDesc='" + catyDesc + '\'' +
+                ", sortOrl=" + sortOrl +
+                ", isShowInNav=" + isShowInNav +
+                ", grade=" + grade +
+                ", filterAttr='" + filterAttr + '\'' +
+                ", isShow=" + isShow +
+                ", isEnabled=" + isEnabled +
                 ", createTime=" + createTime +
                 ", createBy='" + createBy + '\'' +
                 ", updateTime=" + updateTime +
                 ", updateBy='" + updateBy + '\'' +
-                ", goodsDesc='" + goodsDesc + '\'' +
                 '}';
     }
 
-    private String goodsSn;
+    private String catyDesc;
 
-    private String goodsName;
+    private Integer sortOrl;
 
-    private String keywords;
+    private Boolean isShowInNav;
 
-    private String catyId;
+    private Byte grade;
 
-    private String catySn;
+    private String filterAttr;
 
-    private String businessId;
+    private Boolean isShow;
 
-    private Date effectiveDate;
-
-    private Integer expiryDays;
-
-    private String goodsBrief;
-
-    private Integer marketPrice;
-
-    private Integer discount;
-
-    private Integer shopPrice;
-
-    private Integer promotePrice;
-
-    private Date promoteStartDate;
-
-    private Date promoteEndDate;
-
-    private String couponSn;
-
-    private Boolean isOnsale;
-
-    private Integer shipFee;
+    private Boolean isEnabled;
 
     private Date createTime;
 
@@ -79,30 +54,28 @@ public class CtmGoodsinfos {
 
     private String updateBy;
 
-    private String goodsDesc;
-
-    public String getGoodsId() {
-        return goodsId;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setGoodsId(String goodsId) {
-        this.goodsId = goodsId == null ? null : goodsId.trim();
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getGoodsSn() {
-        return goodsSn;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setGoodsSn(String goodsSn) {
-        this.goodsSn = goodsSn == null ? null : goodsSn.trim();
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName == null ? null : categoryName.trim();
     }
 
-    public String getGoodsName() {
-        return goodsName;
+    public String getParentId() {
+        return parentId;
     }
 
-    public void setGoodsName(String goodsName) {
-        this.goodsName = goodsName == null ? null : goodsName.trim();
+    public void setParentId(String parentId) {
+        this.parentId = parentId == null ? null : parentId.trim();
     }
 
     public String getKeywords() {
@@ -113,124 +86,60 @@ public class CtmGoodsinfos {
         this.keywords = keywords == null ? null : keywords.trim();
     }
 
-    public String getCatyId() {
-        return catyId;
+    public String getCatyDesc() {
+        return catyDesc;
     }
 
-    public void setCatyId(String catyId) {
-        this.catyId = catyId == null ? null : catyId.trim();
+    public void setCatyDesc(String catyDesc) {
+        this.catyDesc = catyDesc == null ? null : catyDesc.trim();
     }
 
-    public String getCatySn() {
-        return catySn;
+    public Integer getSortOrl() {
+        return sortOrl;
     }
 
-    public void setCatySn(String catySn) {
-        this.catySn = catySn == null ? null : catySn.trim();
+    public void setSortOrl(Integer sortOrl) {
+        this.sortOrl = sortOrl;
     }
 
-    public String getBusinessId() {
-        return businessId;
+    public Boolean getIsShowInNav() {
+        return isShowInNav;
     }
 
-    public void setBusinessId(String businessId) {
-        this.businessId = businessId == null ? null : businessId.trim();
+    public void setIsShowInNav(Boolean isShowInNav) {
+        this.isShowInNav = isShowInNav;
     }
 
-    public Date getEffectiveDate() {
-        return effectiveDate;
+    public Byte getGrade() {
+        return grade;
     }
 
-    public void setEffectiveDate(Date effectiveDate) {
-        this.effectiveDate = effectiveDate;
+    public void setGrade(Byte grade) {
+        this.grade = grade;
     }
 
-    public Integer getExpiryDays() {
-        return expiryDays;
+    public String getFilterAttr() {
+        return filterAttr;
     }
 
-    public void setExpiryDays(Integer expiryDays) {
-        this.expiryDays = expiryDays;
+    public void setFilterAttr(String filterAttr) {
+        this.filterAttr = filterAttr == null ? null : filterAttr.trim();
     }
 
-    public String getGoodsBrief() {
-        return goodsBrief;
+    public Boolean getIsShow() {
+        return isShow;
     }
 
-    public void setGoodsBrief(String goodsBrief) {
-        this.goodsBrief = goodsBrief == null ? null : goodsBrief.trim();
+    public void setIsShow(Boolean isShow) {
+        this.isShow = isShow;
     }
 
-    public Integer getMarketPrice() {
-        return marketPrice;
+    public Boolean getIsEnabled() {
+        return isEnabled;
     }
 
-    public void setMarketPrice(Integer marketPrice) {
-        this.marketPrice = marketPrice;
-    }
-
-    public Integer getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(Integer discount) {
-        this.discount = discount;
-    }
-
-    public Integer getShopPrice() {
-        return shopPrice;
-    }
-
-    public void setShopPrice(Integer shopPrice) {
-        this.shopPrice = shopPrice;
-    }
-
-    public Integer getPromotePrice() {
-        return promotePrice;
-    }
-
-    public void setPromotePrice(Integer promotePrice) {
-        this.promotePrice = promotePrice;
-    }
-
-    public Date getPromoteStartDate() {
-        return promoteStartDate;
-    }
-
-    public void setPromoteStartDate(Date promoteStartDate) {
-        this.promoteStartDate = promoteStartDate;
-    }
-
-    public Date getPromoteEndDate() {
-        return promoteEndDate;
-    }
-
-    public void setPromoteEndDate(Date promoteEndDate) {
-        this.promoteEndDate = promoteEndDate;
-    }
-
-    public String getCouponSn() {
-        return couponSn;
-    }
-
-    public void setCouponSn(String couponSn) {
-        this.couponSn = couponSn == null ? null : couponSn.trim();
-    }
-
-    public Boolean getIsOnsale() {
-        return isOnsale;
-    }
-
-    public void setIsOnsale(Boolean isOnsale) {
-        this.isOnsale = isOnsale;
-    }
-
-    public Integer getShipFee() {
-        return shipFee;
-    }
-
-    public void setShipFee(Integer shipFee) {
-        this.shipFee = shipFee;
+    public void setIsEnabled(Boolean isEnabled) {
+        this.isEnabled = isEnabled;
     }
 
     public Date getCreateTime() {
@@ -263,13 +172,5 @@ public class CtmGoodsinfos {
 
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy == null ? null : updateBy.trim();
-    }
-
-    public String getGoodsDesc() {
-        return goodsDesc;
-    }
-
-    public void setGoodsDesc(String goodsDesc) {
-        this.goodsDesc = goodsDesc == null ? null : goodsDesc.trim();
     }
 }
