@@ -1,27 +1,20 @@
 package com.goktech.olala.client.controller.customer;
 
 import com.goktech.olala.client.controller.basic.BasicController;
-import com.goktech.olala.core.service.ICtmGoodsClassService;
-import com.goktech.olala.core.service.ICtmInfoService;
-import com.goktech.olala.core.service.ICtmsearchService;
-import com.goktech.olala.core.service.ISysUserService;
+import com.goktech.olala.core.service.*;
 import com.goktech.olala.server.pojo.customer.*;
-import com.goktech.olala.server.pojo.sys.SysUser;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import com.goktech.olala.core.service.ICtmCheckService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 @Controller
 @RequestMapping(value = "/cntApi")
@@ -36,6 +29,9 @@ public class AccountController extends BasicController {
      */
     @Autowired
     ICtmInfoService iCtmInfoService;
+
+    @Autowired
+    ICtmCheckService iCtmCheckService;
 
     @Autowired
     ICtmGoodsClassService ctmGoodsClassService;
@@ -391,7 +387,8 @@ public class AccountController extends BasicController {
             return view;
         }
         ModelAndView view = new ModelAndView();
-        List<CtmGoodsinfos> ctmGoods = ctmsearchService.select(searchInput);
+        String searchInputCheck = iCtmCheckService.queryCheck(searchInput);
+        List<CtmGoodsinfos> ctmGoods = ctmsearchService.select(searchInputCheck);
         request.setAttribute("SEARCHLIST", ctmGoods);
         System.out.println(ctmGoods);
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmCheckMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmCheck">
+    <result column="data_word" jdbcType="VARCHAR" property="dataWord" />
+    <result column="data_match" jdbcType="VARCHAR" property="dataMatch" />
+  </resultMap>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmCheck">
+    insert into data_check (data_word, data_match)
+    values (#{dataWord,jdbcType=VARCHAR}, #{dataMatch,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select data_word, data_match
+    from data_check
+  </select>
+  <select id="queryCheck" parameterType="java.lang.String"  resultType="java.lang.String">
+    select data_match
+    from data_check where data_word =  #{dataWord}
+  </select>
+
+</mapper>

@@ -42,7 +42,7 @@
         </javaClientGenerator>
         <!-- 生成那些表，tableName对应数据库表，domainObjectName对应实体类名 -->
 
-        <table tableName="ctmgoods" domainObjectName="ctmGoods" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <table tableName="data_check" domainObjectName="CtmCheck" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
 <!--
         <table tableName="sys_role_menu" domainObjectName="SysRoleMenu" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
 -->
