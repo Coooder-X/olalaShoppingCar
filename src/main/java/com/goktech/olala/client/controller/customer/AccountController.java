@@ -1,12 +1,11 @@
 package com.goktech.olala.client.controller.customer;
 
 import com.goktech.olala.client.controller.basic.BasicController;
+import com.goktech.olala.core.service.ICtmGoodsClassService;
 import com.goktech.olala.core.service.ICtmInfoService;
+import com.goktech.olala.core.service.ICtmsearchService;
 import com.goktech.olala.core.service.ISysUserService;
-import com.goktech.olala.server.pojo.customer.CTMSecondMenuDirction;
-import com.goktech.olala.server.pojo.customer.CtmConsignee;
-import com.goktech.olala.server.pojo.customer.CtmInfo;
-import com.goktech.olala.server.pojo.customer.CtmLogin;
+import com.goktech.olala.server.pojo.customer.*;
 import com.goktech.olala.server.pojo.sys.SysUser;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -36,6 +36,14 @@ public class AccountController extends BasicController {
      */
     @Autowired
     ICtmInfoService iCtmInfoService;
+
+    @Autowired
+    ICtmGoodsClassService ctmGoodsClassService;
+
+    @Autowired
+    ICtmsearchService ctmsearchService;
+
+    List<CtmGoodsinfo> goodList = new ArrayList<CtmGoodsinfo>();
 
     @RequestMapping(value = "/login.do")
     @ResponseBody
@@ -366,6 +374,81 @@ public class AccountController extends BasicController {
         iCtmInfoService.updateAdd(oldAdd);
 
         view.setViewName("redirect:/cntApi/listAddress.do");
+        return view;
+    }
+
+    /*
+    * Hui
+    *
+    * */
+    @RequestMapping(value = "/search.do")
+    @ResponseBody
+    public ModelAndView serach(HttpServletRequest request) throws  Exception{
+        String searchInput = request.getParameter("index_none_header_sysc");
+        System.out.println(searchInput);
+        if(searchInput == null || searchInput.equals("")){
+            ModelAndView view = new ModelAndView();
+            view.setViewName("/home/search");
+            return view;
+        }
+        System.out.println(searchInput);
+        ModelAndView view = new ModelAndView();
+        List<CtmGoodsinformation> ctmGoods = ctmsearchService.select(searchInput);
+        System.out.println(ctmGoods);
+
+        view.setViewName("/home/search");
+        return view;
+    }
+
+    @RequestMapping(value = "/GoodsClass.do")
+    @ResponseBody
+    public ModelAndView GoodsClass(HttpServletRequest request) throws  Exception{
+        ModelAndView view = new ModelAndView();
+        List<CtmGoodsClass> ctmGoodsClass = ctmGoodsClassService.select();
+        // request.setAttribute("ctmGoodsClass",ctmGoodsClass);
+        view.addObject("ctmGoodsClass",ctmGoodsClass);
+        view.setViewName("home/index");
+        return view;
+    }
+    @RequestMapping(value = "/purchase.do")
+    public  ModelAndView purchase(HttpServletRequest request) throws  Exception{
+        ModelAndView view = new ModelAndView();
+        String item =  request.getParameter("item");
+        CtmInfo ctmInfo = (CtmInfo) request.getSession().getAttribute("USERINFO");
+        String id = ctmInfo.getCustomerId();
+//        String id =  request.getParameter("id");/////////////////////////
+        CtmGoodsinfo goodsinfo = ctmsearchService.selectone(item , id);
+        int i = 0;
+        for(i = 0 ; i < goodList.size() ; i++){
+            if(goodList.get(i).equals(goodsinfo)){
+                goodsinfo = goodList.get(i);
+                break;
+            }
+        }
+        goodsinfo.setSum(1);
+        goodList.set(i , goodsinfo);
+        view.setViewName("home/shopcart");
+        return view;
+    }
+    @RequestMapping(value = "/delete.do")
+    public  ModelAndView delete(HttpServletRequest request) throws  Exception{
+        ModelAndView view = new ModelAndView();
+        String item =  request.getParameter("item");
+        String id =  request.getParameter("id");
+        CtmGoodsinfo goodsinfo = ctmsearchService.selectone(item , id);
+        for(CtmGoodsinfo goods : goodList){
+            if(goods.getGoodID() == id){
+                goodList.remove(goods);
+                break;
+            }
+        }
+        view.setViewName("home/shopcart");
+        return view;
+    }
+    @RequestMapping(value = "/pay.do")
+    public ModelAndView pay(HttpServletRequest request) throws Exception{
+        ModelAndView view = new ModelAndView();
+        view.setViewName("home/shopcart");
         return view;
     }
 }
