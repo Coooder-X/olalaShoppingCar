@@ -45,10 +45,6 @@ public class SysUserController extends BasicController {
         String userName = request.getParameter("account");
         String pwd = request.getParameter("password");
         ModelAndView view = new ModelAndView();
-
-//        Subject subject = SecurityUtils.getSubject();
-//        UsernamePasswordToken token = new UsernamePasswordToken(userName, pwd);
-//        subject.login(token);//会跳到我们自定义的realm中
         SysUser sysUser = new SysUser();
         sysUser.setUserName(userName);
         sysUser.setPassword(pwd);
