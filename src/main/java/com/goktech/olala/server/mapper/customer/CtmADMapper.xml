@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmADMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmAD">
+    <result column="adName" jdbcType="VARCHAR" property="adname" />
+    <result column="times" jdbcType="INTEGER" property="times" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+    <result column="adLevel" jdbcType="INTEGER" property="adlevel" />
+    <result column="cpc" jdbcType="DOUBLE" property="cpc" />
+    <result column="cpm" jdbcType="DOUBLE" property="cpm" />
+    <result column="ctr" jdbcType="DOUBLE" property="ctr" />
+    <result column="roi" jdbcType="DOUBLE" property="roi" />
+    <result column="searchWord" jdbcType="VARCHAR" property="searchword" />
+    <result column="action_cost" jdbcType="DOUBLE" property="actionCost" />
+    <result column="adTime" jdbcType="VARCHAR" property="adtime" />
+    <result column="adType" jdbcType="VARCHAR" property="adtype" />
+    <result column="adBusiness" jdbcType="VARCHAR" property="adbusiness" />
+  </resultMap>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmAD">
+    insert into g_ad (adName, times, price, 
+      adLevel, cpc, cpm, ctr, 
+      roi, searchWord, action_cost, 
+      adTime, adType, adBusiness
+      )
+    values (#{adname,jdbcType=VARCHAR}, #{times,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}, 
+      #{adlevel,jdbcType=INTEGER}, #{cpc,jdbcType=DOUBLE}, #{cpm,jdbcType=DOUBLE}, #{ctr,jdbcType=DOUBLE}, 
+      #{roi,jdbcType=DOUBLE}, #{searchword,jdbcType=VARCHAR}, #{actionCost,jdbcType=DOUBLE}, 
+      #{adtime,jdbcType=VARCHAR}, #{adtype,jdbcType=VARCHAR}, #{adbusiness,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select adName, times, price, adLevel, cpc, cpm, ctr, roi, searchWord, action_cost, 
+    adTime, adType, adBusiness
+    from g_ad
+  </select>
+  <select id="queryName" resultType="java.lang.String">
+   select adName
+    from g_ad
+    order by times LIMIT 1;
+  </select>
+</mapper>

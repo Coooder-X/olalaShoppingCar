@@ -183,7 +183,13 @@ public class CtmGoodsinfos {
     }
     public String getRandomSell(){
         Random r = new Random();
-        Integer ran1 = r.nextInt(200) + 3500;
+        Integer ran1 = r.nextInt(3500) + 200;
         return ran1.toString();
+    }
+
+    static public int getRandomNumber(int maxlen){
+        Random r = new Random();
+        int ran1 = r.nextInt(maxlen);
+        return ran1;
     }
 }

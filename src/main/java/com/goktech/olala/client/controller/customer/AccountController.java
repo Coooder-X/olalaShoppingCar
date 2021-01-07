@@ -31,6 +31,9 @@ public class AccountController extends BasicController {
     ICtmInfoService iCtmInfoService;
 
     @Autowired
+    ICtmADService iCtmADService;
+
+    @Autowired
     ICtmCheckService iCtmCheckService;
 
     @Autowired
@@ -387,10 +390,15 @@ public class AccountController extends BasicController {
             return view;
         }
         ModelAndView view = new ModelAndView();
+        // checkmodule luyuhong
         String searchInputCheck = iCtmCheckService.queryCheck(searchInput);
         List<CtmGoodsinfos> ctmGoods = ctmsearchService.select(searchInputCheck);
         request.setAttribute("SEARCHLIST", ctmGoods);
         System.out.println(ctmGoods);
+
+        // admodule luyuhong
+        String adGoodsName = iCtmADService.queryName();
+        request.setAttribute("adGoodsName", adGoodsName);
 
         view.setViewName("/home/search");
         return view;

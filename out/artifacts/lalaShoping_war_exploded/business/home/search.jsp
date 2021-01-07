@@ -167,13 +167,38 @@
 							<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
 						<%
 //							List<CtmGoodsinfos> list = (List<CtmGoodsinfos>) request.getAttribute("SEARCHLIST");
+							int len = list.size();
+							int randNum = 0;
+							if(len >= 4){
+								randNum = CtmGoodsinfos.getRandomNumber(len);
+							}int idx = 0;
 							if(list != null){
 								for(CtmGoodsinfos it : list) {
+
+
 						%>
 									<li>
 										<div class="i-pic limit">
 											<img src="/business/images/imgsearch1.jpg" />
-											<p class="title fl"><%=it.getCategoryName()%></p>
+											<%
+												if(idx != randNum){
+											%>
+
+											<p class="title fl"><%=it.getCategoryName()%>
+
+											<%
+											}
+											%>
+
+											<%
+												if(idx == randNum){
+											%>
+												<p class="title fl"><%=request.getAttribute("adGoodsName")%>
+												<d> &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 广告</d>
+												<%
+												}
+											%>
+											</p>
 											<p class="price fl">
 												<b>¥</b>
 												<strong><%=it.getRandomPrice()%></strong>
@@ -184,6 +209,7 @@
 										</div>
 									</li>
 						<%
+						idx++;
 								}
 							}
 						%>
