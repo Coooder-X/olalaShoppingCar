@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.goktech.olala.server.pojo.customer.CtmLogin" %>
+<%@ page import="com.goktech.olala.server.pojo.customer.CtmInfo" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2021/1/5
@@ -47,9 +48,11 @@
                     </div>
 
                     <p class="am-form-help">头像</p>
-
+            <%
+                CtmInfo ctmInfo = (CtmInfo) session.getAttribute("USERINFO");
+            %>
                     <div class="info-m">
-                        <div><b>用户名：<i>小叮当</i></b></div>
+                        <div><b>用户名：<i><%=ctmInfo==null?"":ctmInfo.getCustomerName()%></i></b></div>
                         <div class="safeText">
                             <a href="/business/person/safety.jsp">账户安全:<em style="margin-left:20px ;">60</em>分</a>
                             <div class="progressBar"><span style="left: -95px;" class="progress"></span></div>

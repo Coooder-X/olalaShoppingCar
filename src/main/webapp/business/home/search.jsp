@@ -30,14 +30,14 @@
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
-						<a href="login.jsp" target="_top" class="h">亲，请登录</a>
-						<a href="register.html" target="_top">免费注册</a>
+						<a href="/business/home/login.jsp" target="_top" class="h">亲，请登录</a>
+						<a href="/business/home/register.jsp" target="_top">免费注册</a>
 					</div>
 				</div>
 			</ul>
 			<ul class="message-r">
 				<div class="topMessage home">
-					<div class="menu-hd"><a href="index.html" target="_top" class="h">商城首页</a></div>
+					<div class="menu-hd"><a href="/business/home/index.jsp" target="_top" class="h">商城首页</a></div>
 				</div>
 				<div class="topMessage my-shangcheng">
 					<div class="menu-hd MyShangcheng"><a href="/business/frame.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>

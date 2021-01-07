@@ -25,10 +25,10 @@
     <link href="/business/css/hmstyle.css" rel="stylesheet" type="text/css"/>
     <script src="/business/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
     <script src="/business/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
-
 </head>
 
 <body>
+
 <%--<div class="hmtop"></div>--%>
 <div class="am-container header">
     <ul class="message-l">
@@ -40,9 +40,12 @@
             </div>
         </div>
     </ul>
+
+
     <ul class="message-r">
+
         <div class="topMessage home">
-            <div class="menu-hd"><a href="/business/home/index.html" target="_top" class="h">商城首页</a></div>
+            <div class="menu-hd"><a href="/business/home/index.jsp" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
             <div class="menu-hd MyShangcheng"><a href="/business/frame.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
@@ -55,6 +58,25 @@
         </div>
     </ul>
 </div>
+
+<%--  ---------------------------------------------------------------------  --%>
+<div class="nav white">
+    <div class="logo"><img src="/business/images/logo.png" /></div>
+    <div class="logoBig">
+        <li><img src="/business/images/logobig.png" /></li>
+    </div>
+
+    <div class="search-bar pr">
+        <a name="index_none_header_sysc" href="search.jsp"></a>
+        <form method="post" action="/cntApi/search.do">
+            <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
+            <input id="ai-topsearch" class="submit am-btn"  value="搜索" index="1" type="submit">
+        </form>
+    </div>
+</div>
+<div class="clear"></div>
+<%--  *********************************************************************  --%>
+
 <%--            --%>
 <b class="line"></b>
 <div class="shopNav">
@@ -237,7 +259,7 @@
                                                     <dl class="dl-sort">
                                                         <dt><span title="电器"> 电器 </span></dt>
                                                         <%
-                                                            List<String> data = (List<String>) request.getAttribute("secondMenuHouseHold");
+                                                            List<String> data = (List<String>) session.getAttribute("secondMenuHouseHold");
                                                             if(data != null){
                                                                 for(String it : data){
                                                         %>
@@ -250,7 +272,7 @@
                                                     <dl class="dl-sort">
                                                         <dt><span title="蛋糕">电视</span></dt>
                                                         <%
-                                                            data = (List<String>) request.getAttribute("secondMenuTV");
+                                                            data = (List<String>) session.getAttribute("secondMenuTV");
                                                             if(data != null){
                                                                 for(String it: data){
                                                         %>
@@ -263,7 +285,7 @@
                                                     <dl class="dl-sort">
                                                         <dt><span>实力商家</span></dt>
                                                         <%
-                                                            data = (List<String>) request.getAttribute("secondMenuBussinessOne");
+                                                            data = (List<String>) session.getAttribute("secondMenuBussinessOne");
                                                             if(data != null){
                                                                 for(String it: data){
                                                         %>
@@ -294,7 +316,7 @@
                                                     <dl class="dl-sort">
                                                         <dt><span title="饼干">空调</span></dt>
                                                         <%
-                                                            data = (List<String>) request.getAttribute("secondMenuairConditioner");
+                                                            data = (List<String>) session.getAttribute("secondMenuairConditioner");
                                                             if(data != null){
                                                                 for(String it: data){
                                                         %>
@@ -305,7 +327,7 @@
                                                     <dl class="dl-sort">
                                                         <dt><span title="薯片">洗衣机</span></dt>
                                                         <%
-                                                            data = (List<String>) request.getAttribute("secondMenuWashingMeachine");
+                                                            data = (List<String>) session.getAttribute("secondMenuWashingMeachine");
                                                             if(data != null){
                                                                 for(String it: data){
                                                         %>
@@ -318,7 +340,7 @@
                                                     <dl class="dl-sort">
                                                         <dt><span>实力商家</span></dt>
                                                         <%
-                                                            data = (List<String>) request.getAttribute("secondMenuBussinessTwo");
+                                                            data = (List<String>) session.getAttribute("secondMenuBussinessTwo");
                                                             if(data != null){
                                                                 for(String it: data){
                                                         %>

@@ -93,12 +93,12 @@ public class AccountController extends BasicController {
         for(String it: secondMenuHouseHold){
             System.out.println(it);
         }
-        request.setAttribute("secondMenuHouseHold", secondMenuHouseHold);
-        request.setAttribute("secondMenuTV", secondMenuTV);
-        request.setAttribute("secondMenuairConditioner", secondMenuairConditioner);
-        request.setAttribute("secondMenuWashingMeachine", secondMenuWashingMeachine);
-        request.setAttribute("secondMenuBussinessOne", secondMenuBussinessOne);
-        request.setAttribute("secondMenuBussinessTwo", secondMenuBussinessTwo);
+        request.getSession().setAttribute("secondMenuHouseHold", secondMenuHouseHold);
+        request.getSession().setAttribute("secondMenuTV", secondMenuTV);
+        request.getSession().setAttribute("secondMenuairConditioner", secondMenuairConditioner);
+        request.getSession().setAttribute("secondMenuWashingMeachine", secondMenuWashingMeachine);
+        request.getSession().setAttribute("secondMenuBussinessOne", secondMenuBussinessOne);
+        request.getSession().setAttribute("secondMenuBussinessTwo", secondMenuBussinessTwo);
 
         //----------------------------------------------------
 
