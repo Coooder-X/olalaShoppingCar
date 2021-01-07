@@ -1,6 +1,7 @@
 package com.goktech.olala.server.pojo.customer;
 
 import java.util.Date;
+import java.util.Random;
 
 public class CtmGoodsinfos {
     private Integer categoryId;
@@ -172,5 +173,17 @@ public class CtmGoodsinfos {
 
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy == null ? null : updateBy.trim();
+    }
+
+    public String getRandomPrice(){
+        Random r = new Random();
+        Integer ran1 = r.nextInt(2000) + 3500;
+        ran1 -= ran1 % 10;
+        return ran1.toString();
+    }
+    public String getRandomSell(){
+        Random r = new Random();
+        Integer ran1 = r.nextInt(200) + 3500;
+        return ran1.toString();
     }
 }

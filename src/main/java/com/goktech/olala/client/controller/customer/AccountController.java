@@ -392,6 +392,7 @@ public class AccountController extends BasicController {
         }
         ModelAndView view = new ModelAndView();
         List<CtmGoodsinfos> ctmGoods = ctmsearchService.select(searchInput);
+        request.setAttribute("SEARCHLIST", ctmGoods);
         System.out.println(ctmGoods);
 
         view.setViewName("/home/search");
