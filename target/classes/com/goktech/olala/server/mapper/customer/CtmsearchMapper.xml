@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmsearchMapper">
+<!--    <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmGoodsinformation">-->
+<!--        <id column="name" jdbcType="VARCHAR" property="goodName" />-->
+<!--        <result column="id" jdbcType="VARCHAR" property="goodID"/>-->
+<!--    </resultMap>-->
+    <select id="select" parameterType="java.lang.String" resultType="com.goktech.olala.server.pojo.customer.CtmGoodsinfos">
+            select * from g_category where CATEGORY_NAME like concat('%',#{name},'%')
+    </select>
+    <select id="selectone" parameterType="java.lang.String" resultType="com.goktech.olala.server.pojo.customer.CtmGoodsinfo">
+--             select * from g_direction where name=#{name} and id=#{id};
+        select CATEGORY_NAME  from g_category where CATEGORY_ID in (select goodsID from ctm_goods where ctmID = #{name});
+    </select>
+
+</mapper>
