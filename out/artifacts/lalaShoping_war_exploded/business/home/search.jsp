@@ -1,8 +1,7 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.goktech.olala.server.pojo.customer.CtmGoodsinfo" %>
-<%@ page import="com.goktech.olala.server.pojo.customer.CtmGoodsinfos" %>
-<%@ page import="com.goktech.olala.server.pojo.customer.CtmInfo" %>
+<%@ page import="com.goktech.olala.server.pojo.customer.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -19,8 +18,17 @@
 
 		<link href="/business/css/seastyle.css" rel="stylesheet" type="text/css" />
 
+
 		<script type="text/javascript" src="/business/basic/js/jquery-1.7.min.js"></script>
 		<script type="text/javascript" src="/business/js/script.js"></script>
+		<style type="text/css">
+			.g_ad{
+				font-size:14px; color: #6c6c6c;
+				padding: 32px;
+				font-weight: bold;
+			}
+		</style>
+
 	</head>
 
 	<body>
@@ -30,8 +38,19 @@
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
+				<%
+					if(session.getAttribute("CTMLOGIN") == null) {
+				%>
 						<a href="/business/home/login.jsp" target="_top" class="h">亲，请登录</a>
 						<a href="/business/home/register.jsp" target="_top">免费注册</a>
+				<%
+					}
+					else {
+				%>
+						<a><b>欢迎：<%=((CtmInfo)session.getAttribute("USERINFO")).getCustomerName()%></b></a>
+				<%
+					}
+				%>
 					</div>
 				</div>
 			</ul>
@@ -89,6 +108,7 @@
 			</div>
 			<%
 				List<CtmGoodsinfos> list = (List<CtmGoodsinfos>) request.getAttribute("SEARCHLIST");
+				List<CtmGoodsPhoto> photos = (List<CtmGoodsPhoto>) request.getAttribute("GOODSPHOTOLIST");
 			%>
 				
 					<div class="am-g am-g-fixed">
@@ -166,36 +186,45 @@
 
 							<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
 						<%
-//							List<CtmGoodsinfos> list = (List<CtmGoodsinfos>) request.getAttribute("SEARCHLIST");
 							int len = list.size();
 							int randNum = 0;
 							if(len >= 4){
 								randNum = CtmGoodsinfos.getRandomNumber(len);
 							}int idx = 0;
 							if(list != null){
-								for(CtmGoodsinfos it : list) {
-
-
+								for(int i = 0; i < list.size(); ++i) {
+									CtmGoodsinfos it = list.get(i);
 						%>
 									<li>
 										<div class="i-pic limit">
-											<img src="/business/images/imgsearch1.jpg" />
 											<%
+												if(photos != null) {
+													String image = "";
+													if(photos.get(i) != null) {
+														image = photos.get(i).getLocalpath();
+														System.out.println(image);
+													}
+													if(idx != randNum) {
+											%>
+														<img src=<%=image%>/>
+											<%
+													}
+													else{
+											%>
+														<img src="/business/images/laonianshouji.jpg"/>
+											<%
+													}
+												}
 												if(idx != randNum){
 											%>
-
-											<p class="title fl"><%=it.getCategoryName()%>
-
+													<p class="title fl"><%=it.getCategoryName()%>
 											<%
-											}
-											%>
-
-											<%
+												}
 												if(idx == randNum){
 											%>
-												<p class="title fl"><%=request.getAttribute("adGoodsName")%>
-												<d> &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 广告</d>
-												<%
+													<p class="title fl"><%=request.getAttribute("adGoodsName")%>
+													<b><d class="g_ad">广告</d></b>
+											<%
 												}
 											%>
 											</p>
@@ -209,7 +238,7 @@
 										</div>
 									</li>
 						<%
-						idx++;
+									idx++;
 								}
 							}
 						%>

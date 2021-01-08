@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goktech.olala.server.dao.customer.CtmGoodsPhotoMapper">
+  <resultMap id="BaseResultMap" type="com.goktech.olala.server.pojo.customer.CtmGoodsPhoto">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="LOCALPATH" jdbcType="VARCHAR" property="localpath" />
+    <result column="CATEGORY_ID" jdbcType="INTEGER" property="categoryId" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="SMPTITLE" jdbcType="VARCHAR" property="smptitle" />
+    <result column="KIND" jdbcType="VARCHAR" property="kind" />
+    <result column="SORTVALUE" jdbcType="VARCHAR" property="sortvalue" />
+    <result column="STARTTIME" jdbcType="VARCHAR" property="starttime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from g_photo
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.goktech.olala.server.pojo.customer.CtmGoodsPhoto">
+    insert into g_photo (ID, LOCALPATH, CATEGORY_ID, 
+      TITLE, SMPTITLE, KIND, 
+      SORTVALUE, STARTTIME)
+    values (#{id,jdbcType=BIGINT}, #{localpath,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{smptitle,jdbcType=VARCHAR}, #{kind,jdbcType=VARCHAR}, 
+      #{sortvalue,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goktech.olala.server.pojo.customer.CtmGoodsPhoto">
+    update g_photo
+    set LOCALPATH = #{localpath,jdbcType=VARCHAR},
+      CATEGORY_ID = #{categoryId,jdbcType=INTEGER},
+      TITLE = #{title,jdbcType=VARCHAR},
+      SMPTITLE = #{smptitle,jdbcType=VARCHAR},
+      KIND = #{kind,jdbcType=VARCHAR},
+      SORTVALUE = #{sortvalue,jdbcType=VARCHAR},
+      STARTTIME = #{starttime,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, LOCALPATH, CATEGORY_ID, TITLE, SMPTITLE, KIND, SORTVALUE, STARTTIME
+    from g_photo
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, LOCALPATH, CATEGORY_ID, TITLE, SMPTITLE, KIND, SORTVALUE, STARTTIME
+    from g_photo
+  </select>
+  <select id="queryByGoodID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from g_photo where CATEGORY_ID=#{categoryId}
+  </select>
+</mapper>

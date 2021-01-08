@@ -37,6 +37,9 @@ public class AccountController extends BasicController {
     ICtmCheckService iCtmCheckService;
 
     @Autowired
+    ICtmGoodsPhotoService ctmGoodsPhotoService;
+
+    @Autowired
     ICtmGoodsClassService ctmGoodsClassService;
 
     @Autowired
@@ -399,6 +402,14 @@ public class AccountController extends BasicController {
         // admodule luyuhong
         String adGoodsName = iCtmADService.queryName();
         request.setAttribute("adGoodsName", adGoodsName);
+
+        // lzx add photo
+        List<CtmGoodsPhoto> photos = new ArrayList<>();
+        for(CtmGoodsinfos it : ctmGoods) {
+            photos.add(ctmGoodsPhotoService.queryPhotoByGoodID(it.getCategoryId()));
+        }
+        request.setAttribute("GOODSPHOTOLIST", photos);
+        System.out.println(photos);
 
         view.setViewName("/home/search");
         return view;

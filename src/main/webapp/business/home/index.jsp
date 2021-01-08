@@ -1,5 +1,6 @@
 <%@ page import="com.goktech.olala.server.pojo.customer.CtmLogin" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.goktech.olala.server.pojo.customer.CtmInfo" %><%--
   Created by IntelliJ IDEA.
   User: ChenYJ
   Date: 2020/12/29
@@ -34,8 +35,19 @@
     <ul class="message-l">
         <div class="topMessage">
             <div class="menu-hd">
+        <%
+            if(session.getAttribute("CTMLOGIN") == null) {
+        %>
                 <a href="/business/home/login.jsp" target="_top" class="h">亲，请登录</a>
                 <a href="/business/home/register.jsp" target="_top">免费注册</a>
+        <%
+        }
+        else {
+        %>
+                <a><b>欢迎：<%=((CtmInfo)session.getAttribute("USERINFO")).getCustomerName()%></b></a>
+        <%
+            }
+        %>
 <%--                <%=(CtmLogin) session.getAttribute("CTMLOGIN")%>--%>
             </div>
         </div>
@@ -48,7 +60,7 @@
             <div class="menu-hd"><a href="/business/home/index.jsp" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="/business/frame.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+            <div class="menu-hd MyShangcheng"><a href="/business/frame.jsp" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
         </div>
         <div class="topMessage mini-cart">
             <div class="menu-hd"><a id="mc-menu-hd" href="/business/home/shopcart.jsp" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
