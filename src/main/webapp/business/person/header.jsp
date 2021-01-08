@@ -1,3 +1,11 @@
+<%@ page import="com.goktech.olala.server.pojo.customer.CtmInfo" %><%--
+  Created by IntelliJ IDEA.
+  User: Lenovo
+  Date: 2021/1/8
+  Time: 15:14
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <article>
     <div class="mt-logo" >
         <!--顶部导航条 -->
@@ -5,8 +13,19 @@
             <ul class="message-l">
                 <div class="topMessage">
                     <div class="menu-hd">
+                <%
+                    if(session.getAttribute("CTMLOGIN") == null) {
+                %>
                         <a href="/business/home/login.jsp" target="_top" class="h">亲，请登录</a>
                         <a href="/business/home/register.jsp" target="_top">免费注册</a>
+                <%
+                }
+                else {
+                %>
+                        <a><b>欢迎：<%=((CtmInfo)session.getAttribute("USERINFO")).getCustomerName()%></b></a>
+                <%
+                    }
+                %>
                     </div>
                 </div>
             </ul>

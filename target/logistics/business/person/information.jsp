@@ -112,10 +112,14 @@
                                     <em>年</em>
                                 </div>
                                 <div class="birth-select2">
-                                    <select name="month" id="month" onfocus="months(),change_date()" onchange="change_date()"></select>
+                                    <select name="month" id="month" onfocus="months(),change_date()" onchange="change_date()">
+                                        <option selected="selected"><%=Time[1]%></option>
+                                    </select>
                                     <em>月</em></div>
                                 <div class="birth-select2">
-                                    <select id="date" name="date"></select>
+                                    <select id="date" name="date">
+                                        <option selected="selected"><%=Time[2]%></option>
+                                    </select>
                                     <em>日</em></div>
                             </div>
 
@@ -181,7 +185,7 @@
 </body>
 <script>
     $(function () {
-        $("header").load("/business/person/header.html");
+        $("header").load("/business/person/header.jsp");
         $(".nav-table").load("/business/person/nav.html");
         $("div.footer").load("/business/home/footer.html");
         $("aside").load("/business/home/aside.html");

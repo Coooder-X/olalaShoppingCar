@@ -185,7 +185,7 @@
 </body>
 <script>
     $(function () {
-        $("header").load("/business/person/header.html");
+        $("header").load("/business/person/header.jsp");
         $(".nav-table").load("/business/person/nav.html");
         $("div.footer").load("/business/home/footer.html");
         $("aside").load("/business/home/aside.html");

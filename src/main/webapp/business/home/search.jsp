@@ -59,7 +59,7 @@
 					<div class="menu-hd"><a href="/business/home/index.jsp" target="_top" class="h">商城首页</a></div>
 				</div>
 				<div class="topMessage my-shangcheng">
-					<div class="menu-hd MyShangcheng"><a href="/business/frame.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+					<div class="menu-hd MyShangcheng"><a href="/business/frame.jsp" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
 				<div class="topMessage mini-cart">
 					<div class="menu-hd"><a id="mc-menu-hd" href="shopcart.jsp" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
@@ -186,11 +186,13 @@
 
 							<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
 						<%
-							int len = list.size();
 							int randNum = 0;
-							if(len >= 4){
-								randNum = CtmGoodsinfos.getRandomNumber(len);
-							}int idx = 0;
+							if(list != null){
+								int len = list.size();
+								if(len >= 4){
+									randNum = CtmGoodsinfos.getRandomNumber(len);
+								}
+							}
 							if(list != null){
 								for(int i = 0; i < list.size(); ++i) {
 									CtmGoodsinfos it = list.get(i);
@@ -202,9 +204,8 @@
 													String image = "";
 													if(photos.get(i) != null) {
 														image = photos.get(i).getLocalpath();
-														System.out.println(image);
 													}
-													if(idx != randNum) {
+													if(i != randNum) {
 											%>
 														<img src=<%=image%>/>
 											<%
@@ -215,12 +216,12 @@
 											<%
 													}
 												}
-												if(idx != randNum){
+												if(i != randNum){
 											%>
 													<p class="title fl"><%=it.getCategoryName()%>
 											<%
 												}
-												if(idx == randNum){
+												if(i == randNum){
 											%>
 													<p class="title fl"><%=request.getAttribute("adGoodsName")%>
 													<b><d class="g_ad">广告</d></b>
@@ -238,7 +239,6 @@
 										</div>
 									</li>
 						<%
-									idx++;
 								}
 							}
 						%>

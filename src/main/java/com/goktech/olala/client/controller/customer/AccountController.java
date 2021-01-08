@@ -388,6 +388,7 @@ public class AccountController extends BasicController {
     public ModelAndView serach(HttpServletRequest request) throws  Exception{
         String searchInput = request.getParameter("index_none_header_sysc");
         if(searchInput == null || searchInput.equals("")){
+            System.out.println("输入为空");
             ModelAndView view = new ModelAndView();
             view.setViewName("/home/search");
             return view;

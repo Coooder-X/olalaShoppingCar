@@ -18,6 +18,9 @@
     select CUSTOMER_ID, LOGIN_NAME, PASSWORD, USER_STATUS, MODIFIED_TIME
     from c_login
   </select>
+    <update id="updatePwdByID">
+        update c_login set PASSWORD=#{password} where CUSTOMER_ID=#{ctmID}
+    </update>
     <select id="selectByParam" resultMap="BaseResultMap">
         select * from c_login where LOGIN_NAME=#{arg0} and PASSWORD=#{arg1}<!-- 此处返回值要写resultmap，否则返回对象部分字段为空-->
     </select>

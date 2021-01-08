@@ -28,7 +28,7 @@
 							<div class="topMessage">
 								<div class="menu-hd">
 									<a href="home/login.jsp" target="_top" class="h">亲，请登录</a>
-									<a href="home/register.html" target="_top">免费注册</a>
+									<a href="home/register.jsp" target="_top">免费注册</a>
 								</div>
 							</div>
 						</ul>
@@ -56,10 +56,10 @@
 							</div>
 
 							<div class="search-bar pr">
-								<a name="index_none_header_sysc" href="#"></a>
-								<form>
+								<a name="index_none_header_sysc" href="search.jsp"></a>
+								<form method="post" action="/cntApi/search.do">
 									<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
-									<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
+									<input id="ai-topsearch" class="submit am-btn"  value="搜索" index="1" type="submit">
 								</form>
 							</div>
 						</div>
@@ -125,26 +125,26 @@
 			<aside class="menu">
 				<ul>
 					<li class="person active">
-						<a href="home/index.html"><i class="am-icon-user"></i>个人中心</a>
+						<a href="home/index.jsp"><i class="am-icon-user"></i>个人中心</a>
 					</li>
 					<li class="person">
 						<p><i class="am-icon-newspaper-o"></i>个人资料</p>
 						<ul>
-							<li> <a href="person/information.jsp">个人信息</a></li><!--这里改为了jsp-->
-							<li> <a href="person/safety.html">安全设置</a></li>
-							<li> <a href="person/address.html">地址管理</a></li>
+							<li> <a href="/business/person/information.jsp">个人信息</a></li><!--这里改为了jsp-->
+							<li> <a href="/business/person/safety.jsp">安全设置</a></li>
+							<li> <a href="/cntApi/listAddress.do">地址管理</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<p><i class="am-icon-balance-scale"></i>我的交易</p>
 						<ul>
-							<li><a href="person/order.html">订单管理</a></li>
+							<li><a href="/business/person/order.html">订单管理</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<p><i class="am-icon-dollar"></i>我的资产</p>
 						<ul>
-							<li> <a href="person/points.html">我的积分</a></li>
+							<li> <a href="/business/person/points.html">我的积分</a></li>
 						</ul>
 					</li>
 
