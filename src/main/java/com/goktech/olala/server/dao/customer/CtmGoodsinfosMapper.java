@@ -4,11 +4,11 @@ import com.goktech.olala.server.pojo.customer.CtmGoodsinfos;
 import java.util.List;
 
 public interface CtmGoodsinfosMapper {
-    int deleteByPrimaryKey(Integer categoryId);
+    int deleteByPrimaryKey(String categoryId);
 
     int insert(CtmGoodsinfos record);
 
-    CtmGoodsinfos selectByPrimaryKey(Integer categoryId);
+    List<CtmGoodsinfos> selectone(String id);
 
     List<CtmGoodsinfos> selectAll(String name);
 

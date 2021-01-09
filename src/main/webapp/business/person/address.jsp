@@ -47,6 +47,7 @@
 <%--                        "${address.userName}"--%>
 <%--                    </c:forEach>--%>
                 <%
+                if(request.getAttribute("ADDLIST") != null) {
                     List<CtmConsignee> list = (List<CtmConsignee>) request.getAttribute("ADDLIST");
                     for(CtmConsignee it : list){
                 %>
@@ -89,6 +90,7 @@
                         </li>
                 <%
                     }
+                }
                 %>
                 </ul>
                 <div class="clear"></div>

@@ -47,17 +47,15 @@
                         <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
                         <img class="am-circle am-img-thumbnail" src="/business/images/getAvatar.do.jpg" alt="" />
                     </div>
-
                     <p class="am-form-help">头像</p>
 
                     <div class="info-m">
-                        <div><b>用户名：<i><%=((CtmInfo)session.getAttribute("USERINFO")).getCustomerName()%></i></b></div>
+                        <div><b>用户名：<i><%=session.getAttribute("USERINFO")==null?"":((CtmInfo)session.getAttribute("USERINFO")).getCustomerName()%></i></b></div>
                         <div class="vip">
                             <span></span><a href="#">会员专享</a>
                         </div>
                     </div>
                 </div>
-
                 <!--个人信息 -->
                 <div class="info-main">
                     <form class="am-form am-form-horizontal" action="/cntApi/userInfo.do" method="post">
@@ -65,7 +63,7 @@
                         <div class="am-form-group">
                             <label for="user-name2" class="am-form-label">昵称</label>
                             <div class="am-form-content">
-                                <input type="text" name="user-name2" id="user-name2" placeholder=<%=((CtmInfo)session.getAttribute("USERINFO")).getCustomerName()%>>
+                                <input type="text" name="user-name2" id="user-name2" placeholder=<%=session.getAttribute("USERINFO")==null?"":((CtmInfo)session.getAttribute("USERINFO")).getCustomerName()%>>
                                 <small>昵称长度不能超过40个汉字</small>
                             </div>
                         </div>
@@ -73,7 +71,7 @@
                         <div class="am-form-group">
                             <label for="user-name" class="am-form-label">姓名</label>
                             <div class="am-form-content">
-                                <input type="text" name="user-name" id="user-name" placeholder=<%=((CtmInfo)session.getAttribute("USERINFO")).getRealName()%>>
+                                <input type="text" name="user-name" id="user-name" placeholder=<%=session.getAttribute("USERINFO")==null?"":((CtmInfo)session.getAttribute("USERINFO")).getRealName()%>>
 
                             </div>
                         </div>
@@ -99,7 +97,9 @@
                             <div class="am-form-content birth">
                                 <div class="birth-select">
                                     <%
-                                        CtmInfo ctmInfo = (CtmInfo) session.getAttribute("USERINFO");
+                                        CtmInfo ctmInfo = new CtmInfo();
+                                        if(session.getAttribute("USERINFO") != null)
+                                            ctmInfo = (CtmInfo) session.getAttribute("USERINFO");
                                         String []Time = {"", "", ""};
                                         if(ctmInfo.getBirthday().isEmpty() == false){
                                             Time = ctmInfo.getBirthday().split("-");
@@ -128,14 +128,14 @@
                         <div class="am-form-group">
                             <label for="user-phone" class="am-form-label">电话</label>
                             <div class="am-form-content">
-                                <input id="user-phone" name="user-phone"  type="tel" placeholder=<%=((CtmInfo)session.getAttribute("USERINFO")).getUserMobile()%>>
+                                <input id="user-phone" name="user-phone"  type="tel" placeholder=<%=session.getAttribute("USERINFO")==null?"":((CtmInfo)session.getAttribute("USERINFO")).getUserMobile()%>>
 
                             </div>
                         </div>
                         <div class="am-form-group">
                             <label for="user-email" class="am-form-label">电子邮件</label>
                             <div class="am-form-content">
-                                <input id="user-email" name="user-email"  type="email" placeholder=<%=((CtmInfo)session.getAttribute("USERINFO")).getEmail()%>>
+                                <input id="user-email" name="user-email"  type="email" placeholder=<%=session.getAttribute("USERINFO")==null?"":((CtmInfo)session.getAttribute("USERINFO")).getEmail()%>>
 
                             </div>
                         </div>
@@ -170,10 +170,9 @@
                             <input type="submit" value="保存修改" class="am-btn am-btn-danger">
                             </div>
                         </div>
-
                     </form>
-                </div>
 
+                </div>
             </div>
 
         </div>

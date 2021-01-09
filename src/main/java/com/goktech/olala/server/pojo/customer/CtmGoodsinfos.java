@@ -1,37 +1,42 @@
 package com.goktech.olala.server.pojo.customer;
 
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Random;
 
 public class CtmGoodsinfos {
     private Integer categoryId;
 
+    public static int getRandomNumber(int len) {
+        Random r = new Random();
+        int ran1 = r.nextInt(len);
+        return ran1;
+    }
+    public String getRandomPrice(){
+        Random r = new Random();
+        Integer ran1 = r.nextInt(2000) + 3500;
+        ran1 -= ran1 % 10;
+        return ran1.toString();
+    }
+    public String getRandomSell(){
+        Random r = new Random();
+        Integer ran1 = r.nextInt(200) + 3500;
+        return ran1.toString();
+    }
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    private int num = 1;
     private String categoryName;
 
     private String parentId;
 
     private String keywords;
-
-    @Override
-    public String toString() {
-        return "CtmGoodsinfos{" +
-                "categoryId=" + categoryId +
-                ", categoryName='" + categoryName + '\'' +
-                ", parentId='" + parentId + '\'' +
-                ", keywords='" + keywords + '\'' +
-                ", catyDesc='" + catyDesc + '\'' +
-                ", sortOrl=" + sortOrl +
-                ", isShowInNav=" + isShowInNav +
-                ", grade=" + grade +
-                ", filterAttr='" + filterAttr + '\'' +
-                ", isShow=" + isShow +
-                ", isEnabled=" + isEnabled +
-                ", createTime=" + createTime +
-                ", createBy='" + createBy + '\'' +
-                ", updateTime=" + updateTime +
-                ", updateBy='" + updateBy + '\'' +
-                '}';
-    }
 
     private String catyDesc;
 
@@ -52,9 +57,26 @@ public class CtmGoodsinfos {
     private String createBy;
 
     private Date updateTime;
-
+    private Integer sum;
+    private int price;
     private String updateBy;
-
+    public int getprice(){
+        if( price == 0) {
+            Random r = new Random();
+            int t = r.nextInt(1000) + 100;
+            price = t;
+        }
+        return price;
+    }
+    public int getdiscout(){
+        int a = 8;
+        return a;
+    }
+    public Integer getSum(Integer num){
+        this.num = num;
+        sum = price * num;
+        return sum;
+    }
     public Integer getCategoryId() {
         return categoryId;
     }
@@ -173,23 +195,5 @@ public class CtmGoodsinfos {
 
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy == null ? null : updateBy.trim();
-    }
-
-    public String getRandomPrice(){
-        Random r = new Random();
-        Integer ran1 = r.nextInt(2000) + 3500;
-        ran1 -= ran1 % 10;
-        return ran1.toString();
-    }
-    public String getRandomSell(){
-        Random r = new Random();
-        Integer ran1 = r.nextInt(3500) + 200;
-        return ran1.toString();
-    }
-
-    static public int getRandomNumber(int maxlen){
-        Random r = new Random();
-        int ran1 = r.nextInt(maxlen);
-        return ran1;
     }
 }
